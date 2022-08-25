@@ -22,7 +22,7 @@ const create_user = (req, res) => {
     console.log(re_password);
     console.log(nickname);
 
-    if(){
+    /* if(){
     }else{
         const sql = 'INSERT INTO user(email, password, nickname) VALUES(?,?,?)';
         const params = [email, password, nickname];
@@ -36,7 +36,7 @@ const create_user = (req, res) => {
         });
 }
 
-    
+    */
 }
 
 
