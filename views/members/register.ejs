@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title></title>
+  <%-include('../common/sub_head.ejs') %>
+  </head>
+  <%-include('../common/header.ejs') %>
+  <body>
+    <div class = 'title_box'>
+      <p class = 'title'><b>Register</b></p>
+    </div>
+
+    <form action="/register/submit" method="post">
+      <div class="card" class="mx-auto" style="width: 300px;">
+        <div class="card-header">
+          <b>회원가입</b>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            이메일
+            <br>
+            <input type="email" name="email">
+          </li>
+          <li class="list-group-item">
+            비밀번호
+            <br>
+            <input type="password" name="password">
+          </li>
+          <li class="list-group-item">
+            비밀번호 확인
+            <br>
+            <input type="password" name="re_password">
+          </li>
+          <li class="list-group-item">
+            닉네임
+            <br>
+            <input type="text" name="nickname">
+          </li>
+          <li class="list-group-item">
+            <button>로그인</button>
+          </li>
+        </ul>
+      </div>
+    </form>
+  </body>
+</html>
