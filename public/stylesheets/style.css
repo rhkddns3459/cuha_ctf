@@ -1,0 +1,17 @@
+#nav-bar {
+    background-color: #454545;
+    height: 100px
+}
+
+#white {
+    color: #FFFFFF;
+}
+
+.navbar-brand{
+    padding-left: 1rem;
+    font-weight: bold;
+  }
+
+.nav-item{
+    padding-right: 1rem;
+}

@@ -1,0 +1,78 @@
+
+body {
+  height: 100hv;
+  margin: 0px;
+  padding: 0px;
+  background: linear-gradient(#141e30, #163d85);
+}
+
+@keyframes animateShadow {
+  0% {
+    text-shadow: 0px 0px red, -1px 1px orange, -2px 2px yellow, -3px 3px green, -4px 4px skyblue, -5px 5px blue, -6px 6px purple, -7px 7px red, -8px 8px orange, -9px 9px yellow, -10px 10px green, -11px 11px skyblue, -12px 12px blue, -13px 13px purple, -14px 14px red, -15px 15px red, -16px 16px red, -17px 17px red, -18px 18px red, -19px 19px red, -20px 20px red, -21px 21px orange, -22px 22px orange, -23px 23px orange, -24px 24px orange, -25px 25px orange, -26px 26px orange, -27px 27px orange, -28px 28px orange, -29px 29px orange, -30px 30px orange, -31px 31px orange, -32px 32px orange, -33px 33px orange, -34px 34px orange, -35px 35px orange, -36px 36px orange, -37px 37px orange, -38px 38px orange, -39px 39px orange, -40px 40px orange, -41px 41px yellow, -42px 42px yellow, -43px 43px yellow, -44px 44px yellow, -45px 45px yellow, -46px 46px yellow, -47px 47px yellow, -48px 48px yellow, -49px 49px yellow, -50px 50px yellow, -51px 51px yellow, -52px 52px yellow, -53px 53px yellow, -54px 54px yellow, -55px 55px yellow, -56px 56px yellow, -57px 57px yellow, -58px 58px yellow, -59px 59px yellow, -60px 60px yellow, -61px 61px green, -62px 62px green, -63px 63px green, -64px 64px green, -65px 65px green, -66px 66px green, -67px 67px green, -68px 68px green, -69px 69px green, -70px 70px green, -71px 71px green, -72px 72px green, -73px 73px green, -74px 74px green, -75px 75px green, -76px 76px green, -77px 77px green, -78px 78px green, -79px 79px green, -80px 80px green, -81px 81px skyblue, -82px 82px skyblue, -83px 83px skyblue, -84px 84px skyblue, -85px 85px skyblue, -86px 86px skyblue, -87px 87px skyblue, -88px 88px skyblue, -89px 89px skyblue, -90px 90px skyblue, -91px 91px skyblue, -92px 92px skyblue, -93px 93px skyblue, -94px 94px skyblue, -95px 95px skyblue, -96px 96px skyblue, -97px 97px skyblue, -98px 98px skyblue, -99px 99px skyblue, -100px 100px skyblue;
+  }
+  20% {
+    text-shadow: 0px 0px purple, -1px 1px blue, -2px 2px skyblue, -3px 3px red, -4px 4px orange, -5px 5px yellow, -6px 6px green, -7px 7px orange, -8px 8px yellow, -9px 9px green, -10px 10px skyblue, -11px 11px blue, -12px 12px purple, -13px 13px red, -14px 14px red, -15px 15px red, -16px 16px red, -17px 17px red, -18px 18px red, -19px 19px red, -20px 20px red, -21px 21px orange, -22px 22px orange, -23px 23px orange, -24px 24px orange, -25px 25px orange, -26px 26px orange, -27px 27px orange, -28px 28px orange, -29px 29px orange, -30px 30px orange, -31px 31px orange, -32px 32px orange, -33px 33px orange, -34px 34px orange, -35px 35px orange, -36px 36px orange, -37px 37px orange, -38px 38px orange, -39px 39px orange, -40px 40px orange, -41px 41px yellow, -42px 42px yellow, -43px 43px yellow, -44px 44px yellow, -45px 45px yellow, -46px 46px yellow, -47px 47px yellow, -48px 48px yellow, -49px 49px yellow, -50px 50px yellow, -51px 51px yellow, -52px 52px yellow, -53px 53px yellow, -54px 54px yellow, -55px 55px yellow, -56px 56px yellow, -57px 57px yellow, -58px 58px yellow, -59px 59px yellow, -60px 60px yellow, -61px 61px green, -62px 62px green, -63px 63px green, -64px 64px green, -65px 65px green, -66px 66px green, -67px 67px green, -68px 68px green, -69px 69px green, -70px 70px green, -71px 71px green, -72px 72px green, -73px 73px green, -74px 74px green, -75px 75px green, -76px 76px green, -77px 77px green, -78px 78px green, -79px 79px green, -80px 80px green, -81px 81px skyblue, -82px 82px skyblue, -83px 83px skyblue, -84px 84px skyblue, -85px 85px skyblue, -86px 86px skyblue, -87px 87px skyblue, -88px 88px skyblue, -89px 89px skyblue, -90px 90px skyblue, -91px 91px skyblue, -92px 92px skyblue, -93px 93px skyblue, -94px 94px skyblue, -95px 95px skyblue, -96px 96px skyblue, -97px 97px skyblue, -98px 98px skyblue, -99px 99px skyblue, -100px 100px skyblue;
+  }
+  40% {
+    text-shadow: 0px 0px blue, -1px 1px skyblue, -2px 2px red, -3px 3px orange, -4px 4px yellow, -5px 5px green, -6px 6px purple, -7px 7px yellow, -8px 8px green, -9px 9px skyblue, -10px 10px blue, -11px 11px purple, -12px 12px red, -13px 13px orange, -14px 14px red, -15px 15px red, -16px 16px red, -17px 17px red, -18px 18px red, -19px 19px red, -20px 20px red, -21px 21px orange, -22px 22px orange, -23px 23px orange, -24px 24px orange, -25px 25px orange, -26px 26px orange, -27px 27px orange, -28px 28px orange, -29px 29px orange, -30px 30px orange, -31px 31px orange, -32px 32px orange, -33px 33px orange, -34px 34px orange, -35px 35px orange, -36px 36px orange, -37px 37px orange, -38px 38px orange, -39px 39px orange, -40px 40px orange, -41px 41px yellow, -42px 42px yellow, -43px 43px yellow, -44px 44px yellow, -45px 45px yellow, -46px 46px yellow, -47px 47px yellow, -48px 48px yellow, -49px 49px yellow, -50px 50px yellow, -51px 51px yellow, -52px 52px yellow, -53px 53px yellow, -54px 54px yellow, -55px 55px yellow, -56px 56px yellow, -57px 57px yellow, -58px 58px yellow, -59px 59px yellow, -60px 60px yellow, -61px 61px green, -62px 62px green, -63px 63px green, -64px 64px green, -65px 65px green, -66px 66px green, -67px 67px green, -68px 68px green, -69px 69px green, -70px 70px green, -71px 71px green, -72px 72px green, -73px 73px green, -74px 74px green, -75px 75px green, -76px 76px green, -77px 77px green, -78px 78px green, -79px 79px green, -80px 80px green, -81px 81px skyblue, -82px 82px skyblue, -83px 83px skyblue, -84px 84px skyblue, -85px 85px skyblue, -86px 86px skyblue, -87px 87px skyblue, -88px 88px skyblue, -89px 89px skyblue, -90px 90px skyblue, -91px 91px skyblue, -92px 92px skyblue, -93px 93px skyblue, -94px 94px skyblue, -95px 95px skyblue, -96px 96px skyblue, -97px 97px skyblue, -98px 98px skyblue, -99px 99px skyblue, -100px 100px skyblue;
+  }
+  60% {
+    text-shadow: 0px 0px skyblue, -1px 1px red, -2px 2px orange, -3px 3px yellow, -4px 4px green, -5px 5px purple, -6px 6px blue, -7px 7px green, -8px 8px skyblue, -9px 9px blue, -10px 10px purple, -11px 11px red, -12px 12px orange, -13px 13px yellow, -14px 14px red, -15px 15px red, -16px 16px red, -17px 17px red, -18px 18px red, -19px 19px red, -20px 20px red, -21px 21px orange, -22px 22px orange, -23px 23px orange, -24px 24px orange, -25px 25px orange, -26px 26px orange, -27px 27px orange, -28px 28px orange, -29px 29px orange, -30px 30px orange, -31px 31px orange, -32px 32px orange, -33px 33px orange, -34px 34px orange, -35px 35px orange, -36px 36px orange, -37px 37px orange, -38px 38px orange, -39px 39px orange, -40px 40px orange, -41px 41px yellow, -42px 42px yellow, -43px 43px yellow, -44px 44px yellow, -45px 45px yellow, -46px 46px yellow, -47px 47px yellow, -48px 48px yellow, -49px 49px yellow, -50px 50px yellow, -51px 51px yellow, -52px 52px yellow, -53px 53px yellow, -54px 54px yellow, -55px 55px yellow, -56px 56px yellow, -57px 57px yellow, -58px 58px yellow, -59px 59px yellow, -60px 60px yellow, -61px 61px green, -62px 62px green, -63px 63px green, -64px 64px green, -65px 65px green, -66px 66px green, -67px 67px green, -68px 68px green, -69px 69px green, -70px 70px green, -71px 71px green, -72px 72px green, -73px 73px green, -74px 74px green, -75px 75px green, -76px 76px green, -77px 77px green, -78px 78px green, -79px 79px green, -80px 80px green, -81px 81px skyblue, -82px 82px skyblue, -83px 83px skyblue, -84px 84px skyblue, -85px 85px skyblue, -86px 86px skyblue, -87px 87px skyblue, -88px 88px skyblue, -89px 89px skyblue, -90px 90px skyblue, -91px 91px skyblue, -92px 92px skyblue, -93px 93px skyblue, -94px 94px skyblue, -95px 95px skyblue, -96px 96px skyblue, -97px 97px skyblue, -98px 98px skyblue, -99px 99px skyblue, -100px 100px skyblue;
+  }
+  80% {
+    text-shadow: 0px 0px red, -1px 1px orange, -2px 2px yellow, -3px 3px green, -4px 4px purple, -5px 5px blue, -6px 6px skyblue, -7px 7px skyblue, -8px 8px blue, -9px 9px purple, -10px 10px red, -11px 11px orange, -12px 12px yellow, -13px 13px green, -14px 14px red, -15px 15px red, -16px 16px red, -17px 17px red, -18px 18px red, -19px 19px red, -20px 20px red, -21px 21px orange, -22px 22px orange, -23px 23px orange, -24px 24px orange, -25px 25px orange, -26px 26px orange, -27px 27px orange, -28px 28px orange, -29px 29px orange, -30px 30px orange, -31px 31px orange, -32px 32px orange, -33px 33px orange, -34px 34px orange, -35px 35px orange, -36px 36px orange, -37px 37px orange, -38px 38px orange, -39px 39px orange, -40px 40px orange, -41px 41px yellow, -42px 42px yellow, -43px 43px yellow, -44px 44px yellow, -45px 45px yellow, -46px 46px yellow, -47px 47px yellow, -48px 48px yellow, -49px 49px yellow, -50px 50px yellow, -51px 51px yellow, -52px 52px yellow, -53px 53px yellow, -54px 54px yellow, -55px 55px yellow, -56px 56px yellow, -57px 57px yellow, -58px 58px yellow, -59px 59px yellow, -60px 60px yellow, -61px 61px green, -62px 62px green, -63px 63px green, -64px 64px green, -65px 65px green, -66px 66px green, -67px 67px green, -68px 68px green, -69px 69px green, -70px 70px green, -71px 71px green, -72px 72px green, -73px 73px green, -74px 74px green, -75px 75px green, -76px 76px green, -77px 77px green, -78px 78px green, -79px 79px green, -80px 80px green, -81px 81px skyblue, -82px 82px skyblue, -83px 83px skyblue, -84px 84px skyblue, -85px 85px skyblue, -86px 86px skyblue, -87px 87px skyblue, -88px 88px skyblue, -89px 89px skyblue, -90px 90px skyblue, -91px 91px skyblue, -92px 92px skyblue, -93px 93px skyblue, -94px 94px skyblue, -95px 95px skyblue, -96px 96px skyblue, -97px 97px skyblue, -98px 98px skyblue, -99px 99px skyblue, -100px 100px skyblue;
+  }
+  100% {
+    text-shadow: 0px 0px red, -1px 1px red, -2px 2px red, -3px 3px red, -4px 4px red, -5px 5px red, -6px 6px red, -7px 7px red, -8px 8px red, -9px 9px red, -10px 10px red, -11px 11px red, -12px 12px red, -13px 13px red, -14px 14px red, -15px 15px red, -16px 16px red, -17px 17px red, -18px 18px red, -19px 19px red, -20px 20px red, -21px 21px orange, -22px 22px orange, -23px 23px orange, -24px 24px orange, -25px 25px orange, -26px 26px orange, -27px 27px orange, -28px 28px orange, -29px 29px orange, -30px 30px orange, -31px 31px orange, -32px 32px orange, -33px 33px orange, -34px 34px orange, -35px 35px orange, -36px 36px orange, -37px 37px orange, -38px 38px orange, -39px 39px orange, -40px 40px orange, -41px 41px yellow, -42px 42px yellow, -43px 43px yellow, -44px 44px yellow, -45px 45px yellow, -46px 46px yellow, -47px 47px yellow, -48px 48px yellow, -49px 49px yellow, -50px 50px yellow, -51px 51px yellow, -52px 52px yellow, -53px 53px yellow, -54px 54px yellow, -55px 55px yellow, -56px 56px yellow, -57px 57px yellow, -58px 58px yellow, -59px 59px yellow, -60px 60px yellow, -61px 61px green, -62px 62px green, -63px 63px green, -64px 64px green, -65px 65px green, -66px 66px green, -67px 67px green, -68px 68px green, -69px 69px green, -70px 70px green, -71px 71px green, -72px 72px green, -73px 73px green, -74px 74px green, -75px 75px green, -76px 76px green, -77px 77px green, -78px 78px green, -79px 79px green, -80px 80px green, -81px 81px skyblue, -82px 82px skyblue, -83px 83px skyblue, -84px 84px skyblue, -85px 85px skyblue, -86px 86px skyblue, -87px 87px skyblue, -88px 88px skyblue, -89px 89px skyblue, -90px 90px skyblue, -91px 91px skyblue, -92px 92px skyblue, -93px 93px skyblue, -94px 94px skyblue, -95px 95px skyblue, -96px 96px skyblue, -97px 97px skyblue, -98px 98px skyblue, -99px 99px skyblue, -100px 100px skyblue;
+  }
+}
+.index_title {
+  padding: 40px;
+  overflow: hidden;
+  margin: 0px auto;
+  width: 50vw;
+  font-weight: 600;
+  line-height: 0.8;
+  font-size: 1000px;
+  text-align: left;
+  font-size: 3rem;
+  color:  #EDEEE9;
+  font-family: "NeoDunggeunmo";
+  text-shadow: 0px 0px red, -1px 1px red, -2px 2px red, -3px 3px red, -4px 4px red, -5px 5px red, -6px 6px red, -7px 7px red, -8px 8px red, -9px 9px red, -10px 10px red, -11px 11px red, -12px 12px red, -13px 13px red, -14px 14px red, -15px 15px red, -16px 16px red, -17px 17px red, -18px 18px red, -19px 19px red, -20px 20px red, -21px 21px orange, -22px 22px orange, -23px 23px orange, -24px 24px orange, -25px 25px orange, -26px 26px orange, -27px 27px orange, -28px 28px orange, -29px 29px orange, -30px 30px orange, -31px 31px orange, -32px 32px orange, -33px 33px orange, -34px 34px orange, -35px 35px orange, -36px 36px orange, -37px 37px orange, -38px 38px orange, -39px 39px orange, -40px 40px orange, -41px 41px yellow, -42px 42px yellow, -43px 43px yellow, -44px 44px yellow, -45px 45px yellow, -46px 46px yellow, -47px 47px yellow, -48px 48px yellow, -49px 49px yellow, -50px 50px yellow, -51px 51px yellow, -52px 52px yellow, -53px 53px yellow, -54px 54px yellow, -55px 55px yellow, -56px 56px yellow, -57px 57px yellow, -58px 58px yellow, -59px 59px yellow, -60px 60px yellow, -61px 61px green, -62px 62px green, -63px 63px green, -64px 64px green, -65px 65px green, -66px 66px green, -67px 67px green, -68px 68px green, -69px 69px green, -70px 70px green, -71px 71px green, -72px 72px green, -73px 73px green, -74px 74px green, -75px 75px green, -76px 76px green, -77px 77px green, -78px 78px green, -79px 79px green, -80px 80px green, -81px 81px skyblue, -82px 82px skyblue, -83px 83px skyblue, -84px 84px skyblue, -85px 85px skyblue, -86px 86px skyblue, -87px 87px skyblue, -88px 88px skyblue, -89px 89px skyblue, -90px 90px skyblue, -91px 91px skyblue, -92px 92px skyblue, -93px 93px skyblue, -94px 94px skyblue, -95px 95px skyblue, -96px 96px skyblue, -97px 97px skyblue, -98px 98px skyblue, -99px 99px skyblue, -100px 100px skyblue;
+  animation-name: animateShadow;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+
+}
+
+@font-face {
+  font-family: 'NeoDunggeunmo';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+#white {
+  color: #FFFFFF;
+}
+
+h1{
+  font-weight: bold;
+}
+
+h3{
+  font-weight: bold;
+}
+
+.discord_img{
+  width: 7rem;
+  height: 7rem;
+}
+
+.main_title {
+  margin-left: 23.5rem;
+}
+
+.main_flag{
+  color: #163d85;
+}

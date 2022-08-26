@@ -1,0 +1,42 @@
+<html>
+
+  <head>
+  <title>CUHACTF_Register</title>
+  <%- include('../common/sub_head.ejs') %>
+  <link rel="stylesheet" href="../../stylesheets/register.css">
+  </head>
+
+  <%- include('../common/header.ejs') %>
+
+  <body>
+    <div class="login-box">
+      <h2>Register</h2>
+      <form action="/register/submit" method="post">
+        <div class="user-box">
+          <input type="email" name="email" required="">
+          <label>Email</label>
+        </div>
+        <div class="user-box">
+          <input type="text" name="nickname" required="">
+          <label>Nickname</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="password" required="">
+          <label>Password</label>
+        </div>
+        <div class="user-box">
+          <input type="password" name="repassword" required="">
+          <label>repassword</label>
+        </div>
+        <a href="#">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+      
+    </div>
+  </form>
+  </body>
+</html>

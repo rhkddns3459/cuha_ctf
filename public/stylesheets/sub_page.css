@@ -1,0 +1,24 @@
+body {
+  background-color: #E6E6E6;
+  margin: 0px;
+  padding: 0px;
+}
+
+.title_box {
+    background: linear-gradient(#141e30, #163d85);
+    width: 100%;
+    height: 300px;
+}
+
+.title {
+    font-size: 100px;
+    text-align: center;
+    color: white;
+    line-height: 300px;
+}
+
+.category_name {
+    float: left;
+    margin-left: 100px;
+    margin-top: 100px;
+}
