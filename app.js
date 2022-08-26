@@ -32,8 +32,6 @@ app.set("port", process.env.PORT || 3000);
 const indexRouter = require("./routes");
 const registerRouter = require("./routes/register");
 
-//const userRouter = require("./routes/user");
-
 app.set('view engine', "ejs");
 
 sequelize.sync({force: false})

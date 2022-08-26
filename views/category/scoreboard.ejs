@@ -2,11 +2,25 @@
     <head>
     <title>CUHACTF_Scoreboard</title>
     <%-include('../common/sub_head.ejs') %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../../stylesheets/scoreboard.css">
     </head>
     <%-include('../common/header.ejs') %>
     <body>
         <div class = 'title_box'>
             <p class = 'title'><b>Scoreboard</b></p>
         </div>
+
+        <!-- partial:index.partial.html -->
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <main>
+            <h2>Beautiful Google Charts</h2>
+            <h5>Daily Page Hits</h5>
+            <div id="bar-chart"></div>
+            <h5>Traffic Over Time</h5>
+        </main>
+
+
+        <script src="../../js/scoreboard.js"></script>
     </body>
 </html>
