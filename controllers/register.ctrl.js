@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const mysql = require("mysql2");
+const bcrypt = require('bcrypt');
 
 const connection = mysql.createConnection({
         host     : 'localhost',
@@ -14,26 +15,30 @@ const connection = mysql.createConnection({
         console.log("You are connected");
     });
 
-const create_user = (req, res) => {
-    const { email, password, re_password , nickname } = req.body;
+    const create_user = (req, res) => {
+        const { email, password, re_password , nickname } = req.body;
+        const point = 0;
 
-    console.log(email);
-    console.log(password);
-    console.log(re_password);
-    console.log(nickname);
-
+        console.log(email);
+        console.log(password);
+        console.log(re_password);
+        console.log(nickname);
     
-    const sql = 'INSERT INTO user(email, password, nickname) VALUES(?,?,?)';
-    const params = [email, password, nickname];
-
-    connection.query(sql, params, function(err, rows, fields){
-        if(err){
-            console.log(err);
-        } else{
-            res.redirect("/");
-        }
-    });
-}
+        bcrypt.hash(password, 10, (err, password) => {
+            const sql = 'INSERT INTO user(email, password, nickname, point) VALUES(?,?,?,?)';
+            const params = [email, password, nickname, point];
+    
+            connection.query(sql, params, function(err, rows, fields){
+                if(err){
+                    console.log(err);
+                } else{
+                    res.redirect("/");
+                }
+            });    
+        })
+    
+    
+    }
 
 
 

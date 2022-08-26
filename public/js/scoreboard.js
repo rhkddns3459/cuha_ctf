@@ -3,19 +3,7 @@ google.setOnLoadCallback(drawCharts);
 function drawCharts() {
   
   // BEGIN BAR CHART
-  /*
-  // create zero data so the bars will 'grow'
-  var barZeroData = google.visualization.arrayToDataTable([
-    ['Day', 'Page Views', 'Unique Views'],
-    ['Sun',  0,      0],
-    ['Mon',  0,      0],
-    ['Tue',  0,      0],
-    ['Wed',  0,      0],
-    ['Thu',  0,      0],
-    ['Fri',  0,      0],
-    ['Sat',  0,      0]
-  ]);
-	*/
+  
   // actual bar chart data
   var barData = google.visualization.arrayToDataTable([
     ['Team_name', 'Point'],
