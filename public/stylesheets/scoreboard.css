@@ -7,16 +7,16 @@ body {
 main {
   width: 500px;
   margin: 10px auto;
+  margin-top: 5rem;
   padding: 10px 20px 30px;
   background: #FFF;
   box-shadow: 0 3px 5px rgba(0,0,0,0.2);
 }
-p {
-  margin-top: 2rem;
+p { 
   font-size: 13px;
 }
 #bar-chart {
-  width: 500px;
+  width: 28rem;
   height: 300px;
   position: relative;
 }
