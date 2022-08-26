@@ -31,6 +31,7 @@ app.set("port", process.env.PORT || 3000);
 
 const indexRouter = require("./routes");
 const registerRouter = require("./routes/register");
+const loginRouter = require("./routes/login")
 
 app.set('view engine', "ejs");
 
@@ -57,6 +58,7 @@ app.use('/js', express.static(__dirname + '/js'));
 
 app.use("/", indexRouter);
 app.use("/register", registerRouter);
+app.use("/login", loginRouter);
 
 app.use((req, res, next) => {
     res.status(404).send("Not found");

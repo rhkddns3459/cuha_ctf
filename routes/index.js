@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 const registerRouter = require("./register");
+const loginRouter = require("./login")
 
 router.get("/", (req, res) => {
     res.render("index.ejs");
@@ -51,9 +52,7 @@ router.get("/settings", (req, res) => {
 
 router.use("/register", registerRouter);
 
-router.get("/login", (req, res) => {
-    res.render("members/login.ejs");
-});
+router.use("/login", loginRouter);
 
 router.get("/profile", (req, res) => {
     res.render("members/profile.ejs");
