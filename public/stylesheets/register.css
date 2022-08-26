@@ -66,7 +66,7 @@ html {
     position: relative;
     display: inline-block;
     padding: 10px 20px;
-    color: black;
+    color: #03e9f4;
     font-size: 16px;
     text-decoration: none;
     text-transform: uppercase;
@@ -78,7 +78,7 @@ html {
   
   .login-box button:hover {
     background: #03e9f4;
-    color: #fff;
+    color: white;
     border-radius: 5px;
     box-shadow: 0 0 5px #03e9f4,
                 0 0 25px #03e9f4,
