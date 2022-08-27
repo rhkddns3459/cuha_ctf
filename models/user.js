@@ -30,12 +30,17 @@ module.exports = class User extends Sequelize.Model {
         point: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          defaultValue: 10,
+          defaultValue: 0,
         },
         solved: {
           type: Sequelize.INTEGER,
           allowNull: false,
           defaultValue: 0,
+        },
+        team: {
+          type: Sequelize.STRING(20),
+          allowNull: true,
+          required: true,
         },
       },
       {
