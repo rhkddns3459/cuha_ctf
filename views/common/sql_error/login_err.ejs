@@ -1,0 +1,40 @@
+<html>
+
+    <head>
+      <meta charset="UTF-8">
+    <title>CUHACTF_Login</title>
+    <%-include('../../common/sub_head.ejs') %>
+    <link rel="stylesheet" href="../../stylesheets/login.css">
+    </head>
+
+    <%-include('../../common/header.ejs') %>
+
+    <body>
+     
+      <div class="login-box">
+        <h2>Login</h2>
+        <form action="/login/submit" method="post">
+          <div class="user-box">
+            <input type="text" name="email" required="true">
+            <label>Email</label>
+          </div>
+          <div class="user-box">
+            <input type="password" name="password" required="true">
+            <label>Password</label>
+          </div>
+          <button type="submit" class="btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            submit
+          </button>
+          <br>
+          <br>
+          <p class="white">아이디 혹은 비밀번호가 존재하지 않습니다.</p>
+      </div>
+    </form>
+     
+    </body>
+
+</html>

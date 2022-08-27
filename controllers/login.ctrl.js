@@ -38,16 +38,17 @@ const login_user = async(req, res) => {
     
     const {email, password} = req.body;
     try{
-        const exUser = await User.findOne({ where: {email} });
+        const exUser = await User.findAll({});
         console.log("password = " + exUser.password);
-        if(exUser){
+        if(exUser.email === email && exUser.password === password){
             console.log(exUser);
             return res.redirect("/");
         }else{
-            return res.redirect("/login");
+            res.render("../views/common/sql_error/login_err.ejs");
         }
     }catch(err){
         console.log(err);
+        res.send("<script>alert('오류가 발생했습니다.')</script>");
     }
      
     }

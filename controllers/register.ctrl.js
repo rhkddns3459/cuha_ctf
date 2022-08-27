@@ -37,17 +37,25 @@ const User = require("../models/user");
         console.log(re_password);
         console.log(nickname);
 
-        const exUser = await User.findOne({ where: {email}});
+        try{
+            const exUser = await User.findOne({ where: {email}});
 
-        console.log(exUser);
-        console.log(exUser.password);
+            console.log(exUser);
+            console.log(exUser.email)
+            console.log(exUser.password);
 
-        if(exUser.email == email){
-            console.log("이미 있는 email 입니다.");
-        }else{
-            console.log("새로운 email 입니다.");
+            if(exUser.email === email){
+                res.render("../views/common/sql_error/email_err.ejs");
+            } else if(exUser.nickname === nickname) {
+                res.render("../views/common/sql_error/nickname.ejs");
+            } else {
+                res.redirect("/");
+            }
+            }catch(err){
+                console.log(err);
+                res.send("<script>aelrt(오류가 발생했습니다.)</script>");
+            }
         }
-    };
 
 
 
