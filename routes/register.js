@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-
 const controller = require("../controllers/register.ctrl");
 
 router.post("../views/register/submit", controller.create_user);

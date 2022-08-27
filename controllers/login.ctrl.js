@@ -1,44 +1,13 @@
 const router = require("express");
 const mysql = require("mysql2");
+const passport = require("passport");
+const User = require("../models/user");
 const bcrypt = require("bcrypt");
+const { findAll } = require("../models/user");
 
-const connection = mysql.createConnection({
-    host        : 'localhost',
-    user        : 'root',
-    password    : 'root',
-    database    : 'cuha_ctf',
-    dataStrings : "data",
-})
-/*
-const login_user = (req,res) => {
-    const {email, password} = req.body;
-
-    console.log(email);
-    console.log(password);
-
-    bcrypt.hash(password, 10, (err, password) => {
-        const sql = 'SELECT * FROM user where VALUES(?,?)';
-        const params = [email, password];
-
-        console.log(email);
-        console.log(password);
-        
-        connection.query(sql, params, function(err, rows, fields){
-            if(err){
-                console.log(err);
-                res.redirect("/login");
-            } else {
-                res.redirect("/");
-            }
-        })
-    })
-}
-
-*/
-
-const login_user = (req,res) => {
+/*const login_user = (req, res) => {
 const param = [req.body.email, req.body.password];
-connection.query(' select *from user where email=?',param[0],function(error, row) {
+connection.query('select * from user where email=?', param[0], function(error, row){
     
     const {email, password} = req.body;
 
@@ -48,8 +17,11 @@ connection.query(' select *from user where email=?',param[0],function(error, row
     if (error) throw error;
     console.log(row[0]);
     if (row.length > 0) {
-        bcrypt.compare(param[1],row[0].password,(error, result)=>{
+        bcrypt.compare(param[1], row[0].password, (error, result) => {
             if(result) {
+                passport.serializeUser(function(user, done) {
+                    done(null, user.email);
+                });
                 res.send("<script>alert('로그인 성공');location.href='/';</script>");
             } else {
                 res.send("<script>alert('로그인 실패');location.href='/login';</script>");
@@ -60,7 +32,26 @@ connection.query(' select *from user where email=?',param[0],function(error, row
         }
     })
  
-}
+}*/
+
+const login_user = async(req, res) => {
+    
+    const {email, password} = req.body;
+    try{
+        const exUser = await User.findOne({ where: {email} });
+        console.log("password = " + exUser.password);
+        if(exUser){
+            console.log(exUser);
+            return res.redirect("/");
+        }else{
+            return res.redirect("/login");
+        }
+    }catch(err){
+        console.log(err);
+    }
+     
+    }
+
 module.exports = {
     login_user,
 }
