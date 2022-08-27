@@ -30,7 +30,7 @@ module.exports = class User extends Sequelize.Model {
         point: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          defaultValue: 0,
+          defaultValue: 10,
         },
         solved: {
           type: Sequelize.INTEGER,

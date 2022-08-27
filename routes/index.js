@@ -5,6 +5,7 @@ const router = express.Router();
 
 const registerRouter = require("./register");
 const loginRouter = require("./login")
+const scoreboardRouter = require("./scoreboard")
 
 router.get("/", (req, res) => {
     res.render("index.ejs");
@@ -38,10 +39,6 @@ router.get("/submit", (req, res) => {
     res.render("category/submit.ejs");
 });
 
-router.get("/scoreboard", (req, res) => {
-    res.render("category/scoreboard.ejs");
-});
-
 router.get("/team", (req, res) => {
     res.render("category/team.ejs");
 });
@@ -53,6 +50,8 @@ router.get("/settings", (req, res) => {
 router.use("/register", registerRouter);
 
 router.use("/login", loginRouter);
+
+router.use("/scoreboard", scoreboardRouter);
 
 router.get("/profile", (req, res) => {
     res.render("members/profile.ejs");

@@ -38,10 +38,10 @@ const login_user = async(req, res) => {
     
     const {email, password} = req.body;
     try{
-        const exUser = await User.findAll({});
-        console.log("password = " + exUser.password);
-        if(exUser.email === email && exUser.password === password){
-            console.log(exUser);
+        const ex_user = await User.findAll({});
+        console.log("password = " + ex_user.password);
+        if(ex_user.email === email && ex_user.password === password){
+            console.log(ex_user);
             return res.redirect("/");
         }else{
             res.render("../views/common/sql_error/login_err.ejs");
