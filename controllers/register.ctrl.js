@@ -37,6 +37,12 @@ const User = require("../models/user");
         console.log(re_password);
         console.log(nickname);
 
+        User.create({
+            email: email,
+            nickname: nickname,
+            password: password,
+          });
+
         try{
             const exUser = await User.findOne({ where: {email}});
 

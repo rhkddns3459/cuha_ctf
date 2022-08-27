@@ -10,29 +10,35 @@ module.exports = class User extends Sequelize.Model {
           type: Sequelize.INTEGER,
           autoIncrement: true,
           primaryKey: true,
+          defaultValue: 0,
         },
         email: {
           type: Sequelize.STRING(40),
           allowNull: false,
           unique: true,
+          defaultValue: 0,
         },
         password: {
         type:Sequelize.STRING(100),
         allowNull: false,
         unique: false,
+        defaultValue: 0,
         },
         nickname: {
           type: Sequelize.STRING(20),
           allowNull: false,
           unique: true,
+          defaultValue: 0,
         },
         point: {
           type: Sequelize.INTEGER,
           allowNull: false,
+          defaultValue: 0,
         },
         solved: {
           type: Sequelize.INTEGER,
           allowNull: true,
+          defaultValue: 0,
         },
       },
       {
