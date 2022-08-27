@@ -10,25 +10,22 @@ module.exports = class User extends Sequelize.Model {
           type: Sequelize.INTEGER,
           autoIncrement: true,
           primaryKey: true,
-          defaultValue: 0,
         },
         email: {
           type: Sequelize.STRING(40),
-          allowNull: false,
+          required: true,
           unique: true,
           defaultValue: 0,
         },
         password: {
         type:Sequelize.STRING(100),
-        allowNull: false,
+        required: true,
         unique: false,
-        defaultValue: 0,
         },
         nickname: {
           type: Sequelize.STRING(20),
-          allowNull: false,
+          required: true,
           unique: true,
-          defaultValue: 0,
         },
         point: {
           type: Sequelize.INTEGER,
@@ -37,7 +34,7 @@ module.exports = class User extends Sequelize.Model {
         },
         solved: {
           type: Sequelize.INTEGER,
-          allowNull: true,
+          allowNull: false,
           defaultValue: 0,
         },
       },

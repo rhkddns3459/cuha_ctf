@@ -30,32 +30,26 @@ const User = require("../models/user");
 
     const create_user = async(req, res) => {
         const {email, password, re_password, nickname} = req.body;
-        const point = 0;
 
         console.log(email);
         console.log(password);
         console.log(re_password);
         console.log(nickname);
 
-        User.create({
-            email: email,
-            nickname: nickname,
-            password: password,
-          });
-
         try{
             const exUser = await User.findOne({ where: {email}});
 
             console.log(exUser);
-            console.log(exUser.email)
-            console.log(exUser.password);
 
-            if(exUser.email === email){
-                res.render("../views/common/sql_error/email_err.ejs");
-            } else if(exUser.nickname === nickname) {
-                res.render("../views/common/sql_error/nickname.ejs");
-            } else {
+            if(exUser === null){
+                User.create({
+                    email: email,
+                    nickname: nickname,
+                    password: password,
+                  });
                 res.redirect("/");
+            }else if(exUser){
+                res.send("<script>aelrt(중복된 정보가 있습니다.)</script>");
             }
             }catch(err){
                 console.log(err);
