@@ -27,12 +27,16 @@ router.get("/network", (req, res) => {
     res.render("challenge_category/category4_network.ejs");
 });
 
-router.get("/misc", (req, res) => {
-    res.render("challenge_category/category5_misc.ejs");
+router.get("/crypto", (req, res) => {
+    res.render("challenge_category/category5_crypto.ejs");
 });
 
-router.get("/crypto", (req, res) => {
-    res.render("challenge_category/category6_crypto.ejs");
+router.get("/forensic", (req, res) => {
+    res.render("challenge_category/category6_forensic.ejs");
+});
+
+router.get("/misc", (req, res) => {
+    res.render("challenge_category/category7_misc.ejs");
 });
 
 router.get("/submit", (req, res) => {
