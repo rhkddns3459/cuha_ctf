@@ -44,9 +44,6 @@ const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z]
 
             if(exUser === null){
                 if(password == re_password) {
-                   
-
-                   
                 bcrypt.hash(password, 10, (err, password) => {
                 User.create({
                     email: email,
@@ -55,7 +52,7 @@ const regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z]
                     team: team,
                   });
                 })
-                res.redirect("/");
+                res.send("<script>alert('회원가입되었습니다.');location.href='/';</script>");
             }else{
                 
             res.send("<script>alert('비밀번호가 맞지 않습니다.');location.href='/register';</script>");

@@ -3,14 +3,39 @@
     <head>
     <title>CUHACTF_Settings</title>
     <%-include('../common/sub_head.ejs') %>
+    <link rel="stylesheet" href="../../stylesheets/setting.css">
     </head>
 
     <%-include('../common/header.ejs') %>
 
     <body>
-        <div class = 'title_box'>
-            <p class = 'title'><b>Settings</b></p>
+      
+        
+        <div class ="wrapper">
+           
+            <h1 class = "main_title">Settings</h1>
+            <div style = "float:left;">
+                <img src="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/000000/external-settings-user-interface-icongeek26-outline-gradient-icongeek26.png"/>
         </div>
+     
+        <div class="id_box">
+            <label for='name'>Email:</label>
+            <input type='email' name='email' style="border: 1px solid white; background: transparent;" />
+          </div>
+          <div class="id_box2">
+            <label for='name'>Nickname:</label>
+            <input type='text' name='nickname' style="border: 1px solid white; background: transparent;" />
+          </div>
+          <div class="id_box3">
+            <label for='name'>current_password:</label>
+            <input type='password' name='current_password' style="border: 1px solid white; background: transparent;" />
+          </div>
+          <div class="id_box4">
+            <label for='name'>password:</label>
+            <input type='password' name='password' style="border: 1px solid white; background: transparent;" />
+          </div>
+        
+          <img src="https://img.icons8.com/ios-glyphs/100/000000/filled-sent.png" style="margin-top:5%;margin-right:2%;"/>
     </body>
 
 </html>
