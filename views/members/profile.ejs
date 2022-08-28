@@ -6,11 +6,46 @@
     </head>
 
     <%-include('../common/header.ejs') %>
+    <link rel="stylesheet" href="stylesheets/profile_card.css">
+    <script type="text/javascript" src="../../js/profile_card.js"></script>
     
-    <body>
-        <div class = 'title_box'>
-            <p class = 'title'><b>Profile</b></p>
-        </div>
-    </body>
+    <div class="wrapper">
+        <div class="profile-card js-profile-card">
+      
+          <div class="profile-card__cnt js-profile-cnt">
+            <br>
+            <br>
+            <br>
+            <div class="profile-card__name">user_Nickname</div>
+            <div class="profile-card__txt">Team  <strong>Team_name</strong></div>
+            <div class="profile-card-loc">
+              <span class="profile-card-loc__icon">
+                <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+              </span>
+            </div>
+      
+            <div class="profile-card-inf">
+              <div class="profile-card-inf__item">
+                <div class="profile-card-inf__title">3</div>
+                <div class="profile-card-inf__txt">Solved Challenges(Team)</div>
+              </div>
+      
+              <div class="profile-card-inf__item">
+                <div class="profile-card-inf__title">400</div>
+                <div class="profile-card-inf__txt">Porints(team)</div>
+              </div>
+      
+              <div class="profile-card-inf__item">
+                <div class="profile-card-inf__title">10</div>
+                <div class="profile-card-inf__txt">Solved Challenges(user)</div>
+              </div>
+      
+              <div class="profile-card-inf__item">
+                <div class="profile-card-inf__title">1300</div>
+                <div class="profile-card-inf__txt">Pointes(user)</div>
+              </div>
+            </div>
+        </defs>
+      </svg>
 
 </html>
