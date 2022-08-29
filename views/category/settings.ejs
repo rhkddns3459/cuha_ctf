@@ -9,33 +9,37 @@
     <%-include('../common/header.ejs') %>
 
     <body>
-      
-        
-        <div class ="wrapper">
-           
-            <h1 class = "main_title">Settings</h1>
-            <div style = "float:left;">
-                <img src="https://img.icons8.com/external-icongeek26-outline-gradient-icongeek26/64/000000/external-settings-user-interface-icongeek26-outline-gradient-icongeek26.png"/>
-        </div>
      
-        <div class="id_box">
-            <label for='name'>Email:</label>
-            <input type='email' name='email' style="border: 1px solid white; background: transparent;" />
+      <div class="login-box">
+        <h2>Settings</h2>
+        <form action="/login/submit" method="post">
+          <div class="user-box">
+            <input type="text" name="email" required="true" value="1111@2222">
+            <label>Email</label>
           </div>
-          <div class="id_box2">
-            <label for='name'>Nickname:</label>
-            <input type='text' name='nickname' style="border: 1px solid white; background: transparent;" />
+          <div class="user-box">
+            <input type="text" name="nickname" required="true" value="2222">
+            <label>Nickname</label>
           </div>
-          <div class="id_box3">
-            <label for='name'>current_password:</label>
-            <input type='password' name='current_password' style="border: 1px solid white; background: transparent;" />
+          <div class="user-box">
+            <input type="password" name="current_password" required="true" value="12345678">
+            <label>Current_assword</label>
           </div>
-          <div class="id_box4">
-            <label for='name'>password:</label>
-            <input type='password' name='password' style="border: 1px solid white; background: transparent;" />
+          <div class="user-box">
+            <input type="password" name="password" required="true" value="12345678">
+            <label>Password</label>
           </div>
+          <button type="submit" class="btn">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            submit
+          </button>
         
-          <img src="https://img.icons8.com/ios-glyphs/100/000000/filled-sent.png" style="margin-top:5%;margin-right:2%;"/>
+      </div>
+    </form>
+     
     </body>
 
 </html>
