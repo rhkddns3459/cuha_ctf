@@ -25,11 +25,7 @@ const space_exp = /\s/g; //space regExp
         };
 
         if(password.match(password_exp) === null || re_password.match(password_exp === null) || password.match(space_exp) != null || re_password.match(space_exp) != null){
-            res.send("<script>alert('비밀번호 형식은 알파벳, 숫자, 특수문자 포함입니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
-        };
-
-        if(password != re_password){
-            res.send("<script>alert('비밀번호가 일치하지 않습니다.');location.href='/register';</script>");
+            res.send("<script>alert('비밀번호 형식은 알파벳, 숫자, 특수문자 포함 8글자 이상입니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
         if(nickname.match(alphabet_exp) === null || email.match(space_exp) != null){
