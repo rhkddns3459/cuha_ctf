@@ -1,0 +1,105 @@
+* {
+  border-box: content;
+}
+
+.stacked-cards {
+  display: flex;
+  overflow-x: scroll;
+  padding-left: 1rem;
+}
+.stacked-cards .card-grid {
+  padding: 3rem;
+  min-width: 220px;
+}
+.stacked-cards .section-header {
+  background-image: linear-gradient(0deg, #ff8a00, #e52e71);
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  flex: 0;
+  margin: 3rem 0;
+  width: 110px;
+  padding: 2rem;
+  border-radius: 16px;
+  transform: rotate(180deg);
+  writing-mode: vertical-rl;
+}
+.stacked-cards .section-header br {
+  display: none;
+}
+.stacked-cards .section-header > h2 {
+  color: #fff;
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem;
+}
+.stacked-cards .section-header > p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #ffb4b4;
+}
+.stacked-cards .childs {
+  display: flex;
+  overflow-x: visible;
+}
+.stacked-cards .childs .child {
+  margin: 0;
+  padding: 1.5rem;
+  background-color: #17141d;
+  border-radius: 0.5rem;
+  box-shadow: -1rem 0 3rem #000;
+  transition: 0.2s;
+  min-width: 500px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+}
+.stacked-cards .childs .child:not(:first-child) {
+  margin-left: -2rem;
+}
+.stacked-cards .childs .child:hover, .stacked-cards .childs .child:focus-within {
+  transform: translateY(-1rem);
+}
+.stacked-cards .childs .child:hover ~ .child, .stacked-cards .childs .child:focus-within ~ .child {
+  transform: translateX(2rem);
+}
+.stacked-cards .childs .child > img {
+  width: 80%;
+  margin: 0.5rem 0;
+}
+.stacked-cards .childs .child > h2 > a {
+  color: white;
+  text-decoration: none;
+}
+.stacked-cards .childs .child p {
+  color: #7a7a8c;
+}
+.stacked-cards .childs .buttons {
+  display: flex;
+}
+.stacked-cards .childs .buttons .button {
+  outline: none;
+  border: none;
+  color: #7a7a8c;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 3px solid #28242f;
+  border-radius: 2rem;
+  padding: 0.2rem 0.85rem 0.25rem;
+  margin-right: 0.5rem;
+  background-color: #17141d;
+  color: #c1c1d0;
+}
+.stacked-cards .childs .buttons .button:hover {
+  border-color: #545465;
+  cursor: pointer;
+}
+
+.stacked-cards h2 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+.stacked-cards p {
+  margin-bottom: 1rem;
+}

@@ -34,7 +34,9 @@ const login_user = async(req, res) => {
             console.log(ex_user);
             req.session.user_id = req.body.user_id;
             req.session.is_logined = true;
-            return res.redirect("/");
+            req.session.save(function() {
+                return res.redirect("/");
+            });
         }else{
             return res.send("<script>alert('로그인에 실패했습니다.');location.href='/login';</script>");
         }
