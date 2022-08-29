@@ -15,6 +15,8 @@ const login_user = async(req, res) => {
     console.log("login email = " + email);
     console.log("login password = " + password);
 
+    
+   
     if(email.match(email_exp) === null || email.match(space_exp) != null){
         return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/login';</script>");
     };
@@ -24,19 +26,24 @@ const login_user = async(req, res) => {
     };
 
     try{
-        const ex_user = await User.findOne({where: {email: email, password: password}});
-
+        
+        const ex_user = await User.findOne({where: {email: email}});
+        const pass = await bcrypt.compare(password, ex_user.password);
+    if(pass) {
         if(ex_user != null){
             console.log(ex_user);
             return res.redirect("/");
         }else{
             return res.send("<script>alert('로그인에 실패했습니다.');location.href='/login';</script>");
         }
+    } else {
+        return res.send("<script>alert('로그인에 실패했습니다.');location.href='/login';</script>");
+    }
     }catch(err){
         console.log(err);
         res.send("<script>alert('오류가 발생했습니다.');location.href='/';</script>");
     }
-     
+
     }
 
 module.exports = {
