@@ -5,6 +5,8 @@ const User = require("../models/user");
 const e = require("express");
 const email_exp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //email regExp
 const password_exp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"; //password regExp
+const alphabet_exp = /^[a-zA-Z]*$/; //alphabet regExp
+const space_exp = /\s/g; //space regExp
 
     const create_user = async(req, res) => {
         const {email, password, re_password, nickname, team} = req.body;
@@ -14,16 +16,24 @@ const password_exp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{
         console.log(re_password);
         console.log(nickname);
 
-        if(email.match(email_exp) === null){
-            res.send("<script>alert('지정된 이메일 형식을 사용하세요.');location.href='/';</script>");
+        if(email.match(email_exp) === null || email.match(space_exp) != null){
+            res.send("<script>alert('지정된 이메일 형식을 사용하세요. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
-        if(password != re_password){
+        if(password != re_password || email.match(space_exp) != null){
             res.send("<script>alert('비밀번호가 일치하지 않습니다.');location.href='/register';</script>");
         };
 
-        if(password.match(password_exp) === null || re_password.match(password_exp === null)){
-            res.send("<script>alert('비밀번호 형식은 알파벳, 숫자, 특수문자 포함입니다.');location.href='/register';</script>");
+        if(password.match(password_exp) === null || re_password.match(password_exp === null) || email.match(space_exp) != null){
+            res.send("<script>alert('비밀번호 형식은 알파벳, 숫자, 특수문자 포함입니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
+        };
+
+        if(nickname.match(alphabet_exp) === null || email.match(space_exp) != null){
+            res.send("<script>alert('닉네임은 알파벳만 허용합니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
+        };
+
+        if(team.match(alphabet_exp) === null || email.match(space_exp) != null){
+            res.send("<script>alert('닉네임은 알파벳만 허용합니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
         try{

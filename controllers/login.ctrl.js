@@ -5,38 +5,22 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 const { findAll } = require("../models/user");
 
-/*const login_user = (req, res) => {
-const param = [req.body.email, req.body.password];
-connection.query('select * from user where email=?', param[0], function(error, row){
-    
-    const {email, password} = req.body;
-
-    console.log(email);
-    console.log(password);
-
-    if (error) throw error;
-    console.log(row[0]);
-    if (row.length > 0) {
-        bcrypt.compare(param[1], row[0].password, (error, result) => {
-            if(result) {
-                passport.serializeUser(function(user, done) {
-                    done(null, user.email);
-                });
-                res.send("<script>alert('로그인 성공');location.href='/';</script>");
-            } else {
-                res.send("<script>alert('로그인 실패');location.href='/login';</script>");
-            }
-            });
-         } else {
-            res.send("<script>alert('email이 존재하지 않습니다');location.href='/login';</script>");
-        }
-    })
- 
-}*/
+const email_exp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //email regExp
+const password_exp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"; //password regExp
+const space_exp = /\s/g; //space regExp
 
 const login_user = async(req, res) => {
     
     const {email, password} = req.body;
+
+    if(email.match(email_exp) === null || email.match(space_exp) != null){
+        res.send("<script>alert('지정된 이메일 형식을 사용하세요. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/login';</script>");
+    };
+
+    if(password.match(password_exp) === null || re_password.match(password_exp === null) || email.match(space_exp) != null){
+        res.send("<script>alert('비밀번호 형식은 알파벳, 숫자, 특수문자 포함입니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/login';</script>");
+    };
+
     try{
         const ex_user = await User.findAll({});
         console.log("password = " + ex_user.password);
