@@ -1,6 +1,7 @@
 @charset "UTF-8";
 * {
   box-sizing: border-box;
+  border-radius: 15px;
 }
 
 .wrapper {
@@ -69,6 +70,7 @@
   text-transform: uppercase;
   text-align: center;
   transition: all 0.2s ease-in-out;
+  border-radius: 5px;
 }
 .challenges_card__inner:after {
   transition: all 0.3s ease-in-out;
