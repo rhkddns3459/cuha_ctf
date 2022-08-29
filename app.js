@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const { sequelize } = require("./models");
 const mysql = require("mysql2");
 const app = express();
+const file_store = require("session-file-store")(session);
 
 dotenv.config();
 
@@ -44,9 +45,9 @@ app.use(
         httpOnly: true,
         secure: false,
       },
-      name: "session"
-    }),
-  );
+      store: new file_store()
+    }, 
+  ));
 
 app.use("/", indexRouter);
 app.use("/register", registerRouter);
