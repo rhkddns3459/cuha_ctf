@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const User = require("../models/user");
 const e = require("express");
 const email_exp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //email regExp
-const password_exp = "^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"; //password regExp
+const password_exp =  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,18}$/; //password regExp
 const alphabet_exp = /^[a-zA-Z]*$/; //alphabet regExp
 const space_exp = /\s/g; //space regExp
 
@@ -17,24 +17,24 @@ const space_exp = /\s/g; //space regExp
         console.log(nickname);
 
         if(email.match(email_exp) === null || email.match(space_exp) != null){
-            return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
+            return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
-        /*if(password != re_password || email.match(space_exp) != null){
+        if(password != re_password || email.match(space_exp) != null){
             return res.send("<script>alert('비밀번호가 일치하지 않습니다.');location.href='/register';</script>");
         };
 
-        if(password.match(password_exp) === null || re_password.match(password_exp === null) || password.match(space_exp) != null || re_password.match(space_exp) != null){
-            return res.send("<script>alert('비밀번호 형식은 알파벳, 숫자, 특수문자 포함 8글자 이상입니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
+        if(password.match(password_exp) === null || re_password.match(password_exp) === null || password.match(space_exp) != null || re_password.match(space_exp) != null){
+            return res.send("<script>alert('비밀번호 형식은 숫자, 문자, 특수문자 포함 형태의 8~18자리 값만 허용됩니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
         if(nickname.match(alphabet_exp) === null || email.match(space_exp) != null){
-            return res.send("<script>alert('닉네임은 알파벳만 허용합니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
+            return res.send("<script>alert('닉네임은 알파벳만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
-        if(team.match(alphabet_exp) === null || email.match(space_exp) != null){
-            return res.send("<script>alert('닉네임은 알파벳만 허용합니다. 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
-        };*/
+        if(team.match(alphabet_exp) === null || team.match(space_exp) != null){
+            return res.send("<script>alert('팀이름은 알파벳만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
+        };
 
         try{
             const exUser = await User.findOne({ where: {email}});
@@ -42,14 +42,14 @@ const space_exp = /\s/g; //space regExp
             console.log(exUser);
 
             if(exUser === null){
-                bcrypt.hash(password, 10, (err, password) => {
+                //bcrypt.hash(password, 10, (err, password) => {
                 User.create({
                     email: email,
                     nickname: nickname,
                     password: password,
                     team: team,
                 });
-                })
+                //})
                 return res.send("<script>alert('회원가입 되었습니다.');location.href='/';</script>");
             }else{
                 return res.send("<script>alert('중복된 정보가 있습니다.');location.href='/register';</script>");
@@ -59,9 +59,6 @@ const space_exp = /\s/g; //space regExp
                 return res.send("<script>alert('오류가 발생했습니다.');location.href='/register';</script>");
             }
         }
-
-
-
 
 module.exports = {
     create_user,
