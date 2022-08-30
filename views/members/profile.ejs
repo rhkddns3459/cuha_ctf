@@ -16,9 +16,9 @@
             <br>
             <br>
             <br>
-            <div class="profile-card__name">asd</div>
+            <div class="profile-card__name"><%= profile.nickname %></div>
             <br>
-            <div class="profile-card__txt">email :  <strong><%= session.email %></strong></div>
+            <div class="profile-card__txt">email :  <strong><%= profile.email %></strong></div>
             <div class="profile-card-loc">
               <span class="profile-card-loc__icon">
                 <svg class="icon"><use xlink:href="#icon-location"></use></svg>
@@ -26,12 +26,12 @@
             </div>
       
               <div class="profile-card-inf__item">
-                <div class="profile-card-inf__title">10</div>
+                <div class="profile-card-inf__title"><%= profile.solved %></div>
                 <div class="profile-card-inf__txt">Solved Challenges</div>
               </div>
       
               <div class="profile-card-inf__item">
-                <div class="profile-card-inf__title">1300</div>
+                <div class="profile-card-inf__title"><%= profile.point %></div>
                 <div class="profile-card-inf__txt">Pointes</div>
               </div>
             </div>

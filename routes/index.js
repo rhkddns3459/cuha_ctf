@@ -9,6 +9,7 @@ const authRouter = require("./auth");
 const scoreboardRouter = require("./scoreboard");
 const settingsRouter = require("./settings");
 const challengeRouter = require("./challenge");
+const profileRouter = require("./profile");
 
 router.get("/", (req, res) => {
     console.log("--------------------------------------")
@@ -29,8 +30,6 @@ router.use("/scoreboard", scoreboardRouter);
 
 router.use("/logout", authRouter);
 
-router.get("/profile", (req, res) => {
-    res.render("members/profile.ejs", {session: req.session});
-});
+router.use("/profile", profileRouter);
 
 module.exports = router;

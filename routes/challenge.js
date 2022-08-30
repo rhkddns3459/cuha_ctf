@@ -61,12 +61,4 @@ router.get("/misc", (req, res) => {
     }
 });
 
-router.get("/submit", (req, res) => {
-    res.render("category/submit.ejs");
-});
-
-router.get("/settings", (req, res) => {
-    res.render("category/settings.ejs");
-});
-
 module.exports = router;
