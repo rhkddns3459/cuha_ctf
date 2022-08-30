@@ -4,8 +4,8 @@ const express = require("express");
 const router = express.Router();
 
 const registerRouter = require("./register");
-const loginRouter = require("./login")
-const authRouter = require("./auth")
+const loginRouter = require("./login");
+const authRouter = require("./auth");
 const scoreboardRouter = require("./scoreboard");
 const settingsRouter = require("./settings");
 const challengeRouter = require("./challenge");
@@ -16,7 +16,6 @@ router.get("/", (req, res) => {
     
     res.render("index.ejs", {session: req.session});
 });
-
 
 router.use("/challenge", challengeRouter);
 
