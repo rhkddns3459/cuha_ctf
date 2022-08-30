@@ -9,7 +9,7 @@ const team_rank = async(req, res) => {
                 ['point', "DESC"],
             ] });
             console.log(user_info);
-            res.render("category/scoreboard.ejs")
+            res.render("category/scoreboard.ejs", {session: req.session})
     }catch(err){
         console.log("scoreboard 에러가 발생했습니다." + err);
     }
@@ -23,7 +23,7 @@ const user_rank = async(req, res) => {
                 ['point', "DESC"],
             ] });
             console.log(user_info);
-            res.render("category/scoreboard.ejs")
+            res.render("category/scoreboard.ejs", {session: req.session})
     }catch(err){
         console.log("scoreboard 에러가 발생했습니다." + err);
     }

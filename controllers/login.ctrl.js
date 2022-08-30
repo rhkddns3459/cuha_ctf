@@ -29,26 +29,29 @@ const login_user = async(req, res) => {
         
         const ex_user = await User.findOne({where: {email: email}});
         const pass = await bcrypt.compare(password, ex_user.password);
-    if(pass) {
-        if(ex_user != null){
-            console.log(ex_user);
-            req.session.user_id = req.body.user_id;
-            req.session.is_logined = true;
-            req.session.save(function() {
+
+        if(pass) {
+            if(ex_user != null){
+                console.log(ex_user);
+                req.session.email = email
+                req.session.is_logined = true;
+                req.session.save(function() {
+                    console.log("-------------------------------------------------------------");
+                    console.log("login.ctrl.js session = " + JSON.stringify(req.session, null, 2));
+                });
                 return res.redirect("/");
-            });
-        }else{
+            }else{
+                return res.send("<script>alert('로그인에 실패했습니다.');location.href='/login';</script>");
+            }
+        } else {
             return res.send("<script>alert('로그인에 실패했습니다.');location.href='/login';</script>");
         }
-    } else {
-        return res.send("<script>alert('로그인에 실패했습니다.');location.href='/login';</script>");
-    }
     }catch(err){
         console.log(err);
         res.send("<script>alert('오류가 발생했습니다.');location.href='/';</script>");
     }
 
-    }
+}
 
 module.exports = {
     login_user,
