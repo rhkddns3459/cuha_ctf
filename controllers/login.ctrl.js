@@ -17,11 +17,11 @@ const login_user = async(req, res) => {
 
     
    
-    if(email.match(email_exp) === null || email.match(space_exp) != null){
+    if(email.match(email_exp) === null || email.match(space_exp) !== null){
         return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/login';</script>");
     };
 
-    if(password.match(password_exp) === null || password.match(space_exp) != null){
+    if(password.match(password_exp) === null || password.match(space_exp) !== null){
         return res.send("<script>alert('비밀번호 형식은 숫자, 문자, 특수문자 포함 형태의 8~18자리 값만 허용됩니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/login';</script>");
     };
 
@@ -31,7 +31,7 @@ const login_user = async(req, res) => {
         const pass = await bcrypt.compare(password, ex_user.password);
 
         if(pass) {
-            if(ex_user != null){
+            if(ex_user !== null){
                 console.log(ex_user);
                 req.session.email = email
                 req.session.is_logined = true;
