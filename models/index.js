@@ -1,6 +1,6 @@
 'use strict';
 
-const User = require('./user');
+const User = require('./users');
 
 const fs = require('fs');
 const path = require('path');

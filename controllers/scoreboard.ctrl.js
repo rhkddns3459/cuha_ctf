@@ -1,5 +1,5 @@
 const router = require("express");
-const User = require("../models/user");
+const User = require("../models/users");
 
 /*const team_rank = async(req, res) => {
     try{
@@ -25,7 +25,7 @@ const user_rank = async(req, res) => {
             ] });
             console.log("-----------------------------------")
             console.log(user_info[0].nickname);
-            res.render("category/scoreboard.ejs", {session: req.session, rank: user_info})
+            res.render("teams/scoreboard.ejs", {session: req.session, rank: user_info})
     }catch(err){
         console.log("scoreboard 에러가 발생했습니다." + err);
     }
