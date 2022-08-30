@@ -1,0 +1,101 @@
+body {
+  background-color: #333;
+  font-family: 'Annie Use Your Telescope';
+}
+
+.top-nav {
+  background-color: #2D2D2D;
+  border: 5px solid grey;
+  z-index: 1;
+}
+
+.top-nav a {
+  color: #818181;
+}
+.sidenav {
+  border: 5px solid grey;
+  position: fixed;
+  background-color: #2D2D2D;
+  height: 100%;
+  width: 200px;
+  top: 55px;
+  left: 0%;
+  overflow: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 4px 40px;
+  text-decoration: none;
+  font-size: 35px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  background-color: transparent;
+  border-bottom-color: rgba(140,130,115,.13);
+  margin-left: 200px;
+  font-size: 22px; 
+  padding: 0px 10px;
+}
+
+.challenges {
+  border-radius: 6px;
+  background-color: #202020;
+  width: 100%;
+  height: 100px;
+  animation-name: spawnIn;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+}
+
+div.a {
+  padding: 15px 0px 0px 20px;
+}
+
+div.points {
+  line-height: 80%;
+  padding-left: 20px;
+  position: relative;
+  font-size: smaller;
+}
+
+div.type {
+  line-height: 200%;
+  padding-left: 40px;
+  position: relative;
+  font-size: small;
+}
+
+.panel {
+  padding-right: 60px;
+  position: relative;
+  display: none;
+  background-color: #202020;
+  color: white;
+  width: 100%;
+  height: 100px;
+}
+
+.fl-right {
+  padding-left: 80%;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+@keyframes spawnIn {
+  from {left: 100%; transform: rotateX(180deg)}
+  to {left: 0%; transform: rotateX(0deg)}
+}
+
+.row:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
