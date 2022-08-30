@@ -6,8 +6,9 @@ const router = express.Router();
 const registerRouter = require("./register");
 const loginRouter = require("./login")
 const authRouter = require("./auth")
-const scoreboardRouter = require("./scoreboard")
+const scoreboardRouter = require("./scoreboard");
 const settingsRouter = require("./settings");
+const challengeRouter = require("./challenge");
 
 router.get("/", (req, res) => {
     console.log("--------------------------------------")
@@ -16,37 +17,8 @@ router.get("/", (req, res) => {
     res.render("index.ejs", {session: req.session});
 });
 
-router.get("/web", (req, res) => {
-    res.render("challenge_category/category1_web.ejs", {session: req.session});
-});
 
-router.get("/reversing", (req, res) => {
-    res.render("challenge_category/category2_reversing.ejs", {session: req.session});
-});
-
-router.get("/system", (req, res) => {
-    res.render("challenge_category/category3_system.ejs", {session: req.session});
-});
-
-router.get("/network", (req, res) => {
-    res.render("challenge_category/category4_network.ejs", {session: req.session});
-});
-
-router.get("/crypto", (req, res) => {
-    res.render("challenge_category/category5_crypto.ejs", {session: req.session});
-});
-
-router.get("/forensic", (req, res) => {
-    res.render("challenge_category/category6_forensic.ejs", {session: req.session});
-});
-
-router.get("/misc", (req, res) => {
-    res.render("challenge_category/category7_misc.ejs", {session: req.session});
-});
-
-router.get("/submit", (req, res) => {
-    res.render("category/submit.ejs", {session: req.session});
-});
+router.use("/challenge", challengeRouter);
 
 router.use("/settings", settingsRouter);
 
