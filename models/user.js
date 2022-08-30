@@ -37,11 +37,6 @@ module.exports = class User extends Sequelize.Model {
           allowNull: false,
           defaultValue: 0,
         },
-        team: {
-          type: Sequelize.STRING(20),
-          allowNull: true,
-          required: true,
-        },
       },
       {
         sequelize, //해당 부분에 db.sequelize 객체가 들어간다.

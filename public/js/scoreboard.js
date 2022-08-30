@@ -6,10 +6,10 @@ function drawCharts() {
   
   // actual bar chart data
   var barData = google.visualization.arrayToDataTable([
-    ['Team_name', 'Point'],
-    ['Team_A',      1400],
-    ['Team_B',      910],
-    ['Team_C',       400],
+    ['nickname', 'Point'],
+    ["<%= rank[0].nickname %>",      1400],
+    ["rank[1].nickname",      910],
+    ["rank[2].nickname",       400],
   ]);
   // set bar chart options
   var barOptions = {

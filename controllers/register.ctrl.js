@@ -8,7 +8,7 @@ const alphabet_exp = /^[a-zA-Z]*$/; //alphabet regExp
 const space_exp = /\s/g; //space regExp
 
     const create_user = async(req, res) => {
-        const {email, password, re_password, nickname, team} = req.body;
+        const {email, password, re_password, nickname} = req.body;
 
         console.log(email);
         console.log(password);
@@ -21,10 +21,6 @@ const space_exp = /\s/g; //space regExp
 
         if(nickname.match(alphabet_exp) === null || email.match(space_exp) != null){
             return res.send("<script>alert('닉네임은 알파벳만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
-        };
-
-        if(team.match(alphabet_exp) === null || team.match(space_exp) != null){
-            return res.send("<script>alert('팀이름은 알파벳만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
         if(password.match(password_exp) === null || re_password.match(password_exp) === null || password.match(space_exp) != null || re_password.match(space_exp) != null){
@@ -46,7 +42,6 @@ const space_exp = /\s/g; //space regExp
                     email: email,
                     nickname: nickname,
                     password: password,
-                    team: team,
                 });
                 })
                 return res.send("<script>alert('회원가입 되었습니다.');location.href='/';</script>");

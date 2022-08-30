@@ -7,6 +7,7 @@ const registerRouter = require("./register");
 const loginRouter = require("./login")
 const authRouter = require("./auth")
 const scoreboardRouter = require("./scoreboard")
+const settingsRouter = require("./settings");
 
 router.get("/", (req, res) => {
     console.log("--------------------------------------")
@@ -47,13 +48,7 @@ router.get("/submit", (req, res) => {
     res.render("category/submit.ejs", {session: req.session});
 });
 
-router.get("/team", (req, res) => {
-    res.render("category/team.ejs", {session: req.session});
-});
-
-router.get("/settings", (req, res) => {
-    res.render("category/settings.ejs", {session: req.session});
-});
+router.use("/settings", settingsRouter);
 
 router.use("/register", registerRouter);
 

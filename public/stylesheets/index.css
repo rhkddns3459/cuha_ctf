@@ -74,5 +74,17 @@ h3{
 }
 
 .main_flag{
-  color: #152D5A;
+  color: #142647;
+}
+
+.child{
+  height: 23rem;
+}
+
+.license{
+  font-size: 0.1px;
+}
+
+.section-header{
+  height: 20rem;
 }

@@ -37,10 +37,6 @@ router.get("/submit", (req, res) => {
     res.render("category/submit.ejs");
 });
 
-router.get("/team", (req, res) => {
-    res.render("category/team.ejs");
-});
-
 router.get("/settings", (req, res) => {
     res.render("category/settings.ejs");
 });
