@@ -8,7 +8,7 @@ const loginRouter = require("./login");
 const authRouter = require("./auth");
 const scoreboardRouter = require("./scoreboard");
 const settingsRouter = require("./settings");
-const challengeRouter = require("./challenge");
+const challengeRouter = require("./challenge_category");
 const profileRouter = require("./profile");
 
 router.get("/", (req, res) => {
