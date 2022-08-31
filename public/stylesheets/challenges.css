@@ -97,7 +97,7 @@ body{
 }
 
 .container .card .face.face1 .content a{
-   transition: .5s;
+  transition: .5s;
 }
 
 .container .card .face.face2{
@@ -139,13 +139,6 @@ body{
   background: #333 ;
   color: whitesmoke; 
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.5);
-}
-
-body {
-  background-color: #fdfdfd;
-  font-family: "Arial", sans-serif;
-  font-size: 14px;
-  color: #77808c;
 }
 
 .triggers {
