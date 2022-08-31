@@ -15,19 +15,19 @@ const space_exp = /\s/g; //space regExp
         console.log(re_password);
         console.log(nickname);
 
-        if(email.match(email_exp) === null || email.match(space_exp) != null){
+        if(email.match(email_exp) === null || email.match(space_exp) !== null){
             return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
-        if(nickname.match(alphabet_exp) === null || email.match(space_exp) != null){
+        if(nickname.match(alphabet_exp) === null || email.match(space_exp) !== null){
             return res.send("<script>alert('닉네임은 알파벳만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
-        if(password.match(password_exp) === null || re_password.match(password_exp) === null || password.match(space_exp) != null || re_password.match(space_exp) != null){
+        if(password.match(password_exp) === null || re_password.match(password_exp) === null || password.match(space_exp) !== null || re_password.match(space_exp) !== null){
             return res.send("<script>alert('비밀번호 형식은 숫자, 문자, 특수문자 포함 형태의 8~18자리 값만 허용됩니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
-        if(password != re_password || email.match(space_exp) != null){
+        if(password != re_password || email.match(space_exp) !== null){
             return res.send("<script>alert('비밀번호가 일치하지 않습니다.');location.href='/register';</script>");
         };
 
