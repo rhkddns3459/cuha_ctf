@@ -97,7 +97,7 @@
 
 .vcms__popup .inner .footer .btn {
   height: 43px;
-  width: 156px;
+  width: 80px;
   flex-grow: 0;
   flex-shrink: 0;
   display: flex;
@@ -107,7 +107,7 @@
   text-decoration: none;
   font-size: 13px;
   border: 2px solid #3a4047;
-  border-radius: 21.5px;
+  border-radius: 5.5px;
   box-sizing: border-box;
   font-weight: 600;
   transition: all 0.15s ease-in-out;
@@ -138,4 +138,21 @@
   background-color: #3a4047;
   color: #fff;
   border: 2px solid #3a4047;
+}
+
+.flag {
+  height: 43px;
+  width: 270px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  border: 2px solid #3a4047;
+  border-radius: 2px;
+  box-sizing: border-box;
+  font-weight: 600;
+  border-radius: 3px;
+ 
 }
