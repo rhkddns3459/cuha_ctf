@@ -14,7 +14,7 @@
         <h2>Settings</h2>
         <form action="/settings/submit" method="post">
           <div class="user-box">
-            <input type="text" name="email" required="true" value="<%= session.email %>" >
+            <input type="text" name="email" required="true" value="<%= session.email %>" readonly>
             <label>Email</label>
           </div>
           <div class="user-box">
