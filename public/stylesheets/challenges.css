@@ -1,12 +1,9 @@
 body{
-  
   margin:0;
   padding:0;
-  
   background: linear-gradient(#141e30, #163d85);
  
 }
-
 .card {
   position: relative;
   display: flex;
@@ -119,7 +116,6 @@ body{
 }
 
 .container .card .face.face2 .content p, a{
-  font-size: 10pt;
   margin: 0 ;
   padding: 0;
   color:#333;
