@@ -1,15 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
-
-.skills {
-  width: 80%;
-  max-width: 960px;
-  height: 780px;
-  height: 788px;
-  margin: auto;
-  position: relative;
-}
-
 .lines {
   height: 100%;
   position: relative;
@@ -52,6 +42,8 @@
   top: 0;
   left: 0;
   z-index: 10;
+  margin-top: 5rem;
+  margin-left:  3rem;
 }
 
 .chart:not(:first-child) {

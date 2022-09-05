@@ -25,6 +25,7 @@ input[type=text], textarea, input[type=email], input[type=password], input[type=
 
     #scrims-ladder--container {
         padding:50px;
+        margin-top: 20rem;
     }
     .ladder-nav {
         display:flex;
