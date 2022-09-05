@@ -3,43 +3,340 @@
     <title>CUHACTF_Scoreboard</title>
     <%-include('../common/sub_head.ejs') %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="../../stylesheets/scoreboard.css">
+    <link rel="stylesheet" href="../../stylesheets/scoreboard_table.css">
     </head>
     <%-include('../common/header.ejs') %>
     <body>
-        
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-          google.charts.load('current', {'packages':['bar']});
-          google.charts.setOnLoadCallback(drawChart);
-            
-          
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-              [rank.nickname, 'Sales', 'Expenses', 'Profit'],
-              ['2014', 1000, 400, 200],
-              ['2015', 1170, 460, 250],
-              ['2016', 660, 1120, 300],
-              ['2017', 1030, 540, 350]
-            ]);
-            
-            var options = {
-              chart: {
-                title: 'Company Performance',
-                subtitle: 'Sales, Expenses, and Profit: 2014-2017',
-              }
-            };
-    
-            var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
-    
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-          }
-        </script>
-      </head>
-      <body>
-        <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
-      </body>
-      
-
+      <section id="scrims-ladder--container" class="scrims-ladder">
+        <div class="ladder-nav">
+          <div class="ladder-nav--col ladder-title">
+            <h1>Scoreboard</h1>
+          </div>
+          <div class="ladder-nav--col">
+             <input type="text" class="ladder-search" placeholder="Search Team, Player..." />
+          </div>
+        </div>
+        <div class="ladder-nav--results">
+          <div class="ladder-nav--results-col">
+            <label>Rank</label>
+          </div>
+          <div class="ladder-nav--results-col">
+            <label>Team Name</label>
+          </div>
+          <div class="ladder-nav--results-col">
+            <label>Latest Solve</label>
+          </div>
+          <div class="ladder-nav--results-col">
+            <label>Average Score</label>
+          </div>
+          <div class="ladder-nav--results-col">
+            <label>Members</label>
+          </div>
+          <div class="ladder-nav--results-col">
+            <label>Points</label>
+          </div>
+        </div>
+        <div class="ladder-nav--results-players">
+          <div class="results-col">
+            <span class="results-rank"><span class="positions">1</span></span>
+          </div>
+          <div class="results-col">
+            <span class="results-team">YourTeamName</span>
+          </div>
+          <div class="results-col">
+            <span class="results-p1">2022-11-11T15:45:30</span>
+          </div>
+          <div class="results-col">
+            <span class="results-p2">73</span>
+          </div>
+          <div class="results-col">
+            <span class="results-gp">7</span>
+          </div>
+          <div class="results-col">
+            <span class="results-pts">512</span>
+          </div>
+        </div>
+        <!-- JS Loop -->
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">2</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+                <div class="results-col">
+                    <span class="results-rank"><span class="positions">3</span></span>
+                </div>
+                <div class="results-col">
+                    <span class="results-team">YourTeamName</span>
+                </div>
+                <div class="results-col">
+                    <span class="results-p1">2022-11-11T15:45:30</span>
+                </div>
+                <div class="results-col">
+                    <span class="results-p2">73</span>
+                </div>
+                <div class="results-col">
+                    <span class="results-gp">7</span>
+                </div>
+                <div class="results-col">
+                    <span class="results-pts">512</span>
+                </div>
+            </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">4</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">5</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">6</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">7</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">8</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">9</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">10</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">11</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">12</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+          </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">13</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+            <div class="results-col">
+                <span class="results-rank"><span class="positions">14</span></span>
+            </div>
+            <div class="results-col">
+                <span class="results-team">YourTeamName</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p1">2022-11-11T15:45:30</span>
+            </div>
+            <div class="results-col">
+                <span class="results-p2">73</span>
+            </div>
+            <div class="results-col">
+                <span class="results-gp">7</span>
+            </div>
+            <div class="results-col">
+                <span class="results-pts">512</span>
+            </div>
+        </div>
+        <div class="ladder-nav--results-players">
+          <div class="results-col">
+              <span class="results-rank"><span class="positions">15</span></span>
+          </div>
+          <div class="results-col">
+              <span class="results-team">YourTeamName</span>
+          </div>
+          <div class="results-col">
+              <span class="results-p1">2022-11-11T15:45:30</span>
+          </div>
+          <div class="results-col">
+              <span class="results-p2">73</span>
+          </div>
+          <div class="results-col">
+              <span class="results-gp">7</span>
+          </div>
+          <div class="results-col">
+              <span class="results-pts">512</span>
+          </div>
+      </div>
+</section>
     </body>
 </html>
