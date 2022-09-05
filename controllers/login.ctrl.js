@@ -33,6 +33,7 @@ const login_user = async(req, res) => {
         if(pass) {
             if(ex_user !== null){
                 console.log(ex_user);
+
                 req.session.email = email;
                 req.session.nickname = ex_user.nickname;
                 req.session.is_logined = true;
