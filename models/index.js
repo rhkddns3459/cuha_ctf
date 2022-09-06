@@ -1,7 +1,6 @@
 'use strict';
 
 const User = require('./users');
-const Scoreboard = require('./scoreboard');
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -40,10 +39,5 @@ db.User = User;
 User.init(sequelize);
 
 User.associate(db);
-
-db.Scoreboad = Scoreboard;
-Scoreboard.init(sequelize);
-
-Scoreboard.associate(db);
 
 module.exports = db;
