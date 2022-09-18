@@ -8,8 +8,14 @@ const loginRouter = require("./login");
 const authRouter = require("./auth");
 const scoreboardRouter = require("./scoreboard");
 const settingsRouter = require("./settings");
-const challengeRouter = require("./challenge_category");
+
 const profileRouter = require("./profile");
+
+const challenge_webRouter = require("./challenge_web");
+const challenge_networkRouter = require("./challenge_network");
+const challenge_miscRouter = require("./challenge_misc");
+const challenge_cryptoRouter = require("./challenge_crypto");
+const challenge_reversingRouter = require("./challenge_reversing");
 
 router.get("/", (req, res) => {
     console.log("--------------------------------------")
@@ -18,7 +24,18 @@ router.get("/", (req, res) => {
     res.render("index.ejs", {session: req.session});
 });
 
-router.use("/challenge", challengeRouter);
+
+router.use("/challenge/web", challenge_webRouter);
+
+router.use("/challenge/network", challenge_networkRouter);
+
+router.use("/challenge/misc", challenge_miscRouter);
+
+router.use("/challenge/reversing", challenge_reversingRouter);
+
+router.use("/challenge/crypto", challenge_cryptoRouter);
+
+
 
 router.use("/settings", settingsRouter);
 
@@ -31,5 +48,7 @@ router.use("/scoreboard", scoreboardRouter);
 router.use("/logout", authRouter);
 
 router.use("/profile", profileRouter);
+
+
 
 module.exports = router;

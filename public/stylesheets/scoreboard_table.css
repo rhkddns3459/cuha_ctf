@@ -3,6 +3,7 @@
   margin:0;
   padding:0;
 }
+
 input[type=text], textarea, input[type=email], input[type=password], input[type=tel], input[type=url], input[type=search], input[type=date] {
     padding: 10px;
     width: 100%;
@@ -24,7 +25,7 @@ input[type=text], textarea, input[type=email], input[type=password], input[type=
 
     #scrims-ladder--container {
         padding:50px;
-        margin-top: 20rem;
+        margin-top: 1rem;
     }
     .ladder-nav {
         display:flex;

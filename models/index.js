@@ -1,6 +1,8 @@
 'use strict';
 
 const User = require('./users');
+const Web1 = require('./web1');
+const Web2 = require('./web2');
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -15,6 +17,9 @@ if (config.use_env_variable) {
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
+
+
+
 /*
 fs
   .readdirSync(__dirname)
@@ -39,5 +44,15 @@ db.User = User;
 User.init(sequelize);
 
 User.associate(db);
+
+db.Web1 = Web1;
+Web1.init(sequelize);
+
+Web1.associate(db);
+
+db.Web2 = Web2;
+Web2.init(sequelize);
+
+Web2.associate(db);
 
 module.exports = db;
