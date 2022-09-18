@@ -40,7 +40,7 @@ app.use(
     session({
       resave: false,
       saveUninitialized: false,
-      secret: 'SECRET',
+      secret: process.env.COOKIE_SECRET,
       cookie: {
         httpOnly: true,
         secure: false,
