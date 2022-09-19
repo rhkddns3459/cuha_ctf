@@ -4,7 +4,6 @@ const User = require("../models/users");
 const user_rank = async(req, res) => {
     try{
         const user_info = await User.findAll({ 
-            limit: 3,
             order:[
                 ['point', "DESC"],
             ] });
