@@ -3,6 +3,7 @@
 const User = require('./users');
 const Web1 = require('./web1');
 const Web2 = require('./web2');
+const Flag = require('./flag');
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -54,5 +55,10 @@ db.Web2 = Web2;
 Web2.init(sequelize);
 
 Web2.associate(db);
+
+db.Flag = Flag;
+Flag.init(sequelize);
+
+Flag.associate(db);
 
 module.exports = db;

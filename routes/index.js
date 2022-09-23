@@ -16,6 +16,7 @@ const challenge_networkRouter = require("./challenge_network");
 const challenge_miscRouter = require("./challenge_misc");
 const challenge_cryptoRouter = require("./challenge_crypto");
 const challenge_reversingRouter = require("./challenge_reversing");
+const challenge_flagRouter = require("./challenge_flag");
 
 router.get("/", (req, res) => {
     console.log("--------------------------------------")
@@ -35,7 +36,7 @@ router.use("/challenge/reversing", challenge_reversingRouter);
 
 router.use("/challenge/crypto", challenge_cryptoRouter);
 
-
+router.use("/challenge/flag", challenge_flagRouter);
 
 router.use("/settings", settingsRouter);
 
