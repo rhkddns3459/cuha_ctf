@@ -28,6 +28,12 @@ module.exports = class Flag extends Sequelize.Model {
           allowNull: false,
           defaultValue: 0,
         },
+        solved_nickname: {
+          type: Sequelize.STRING(40),
+          required: true,
+          unique: true,
+          defaultValue: 0,
+        },
       },
       {
         sequelize, //해당 부분에 db.sequelize 객체가 들어간다.
