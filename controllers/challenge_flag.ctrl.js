@@ -12,8 +12,10 @@ const challenge_flag = async(req, res) => {
 if(user_already === null) {
     if(flag_correct.flag === user_flag) {
         point_num = user_correct.point + flag_correct.point
+        solved_num = user_correct.point + 1
         User.update({
-            point: point_num
+            point: point_num,
+            solved: solved_num,
           }, {
             where: { email: req.session.email }
           });
