@@ -4,15 +4,15 @@ const Flag = require("../models/flag");
 const User = require("../models/users");
 const challenge_flag = async(req, res) => {
     const user_flag = req.body.flag;
-    const user_type = req.body.type;
-    const user_correct = await User.findOne({where: {email: req.session.email}});
-    const flag_correct = await Flag.findOne({where: {type: user_type},raw:true});
-    const user_already = await Already_solved.findOne({where: {nickname:req.session.nickname,type:user_type},raw:true});
+    const user_challenge_title = req.body.challenge_title;
+    const user = await User.findOne({where: {email: req.session.email}});
+    const flag_correct = await Flag.findOne({where: {challenge_title: user_challenge_title},raw:true});
+    const user_already = await Already_solved.findOne({where: {nickname:req.session.nickname,challenge_title:user_challenge_title},raw:true});
         console.log(user_already);
 if(user_already === null) {
     if(flag_correct.flag === user_flag) {
-        point_num = user_correct.point + flag_correct.point
-        solved_num = user_correct.point + 1
+        point_num = user.point + flag_correct.point
+        solved_num = user.point + 1
         User.update({
             point: point_num,
             solved: solved_num,
@@ -22,7 +22,7 @@ if(user_already === null) {
 
           Already_solved.create({
             nickname:req.session.nickname,
-            type: user_type,
+            challenge_title: user_challenge_title,
           });
 
         console.log(flag_correct.point);

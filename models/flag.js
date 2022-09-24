@@ -17,7 +17,7 @@ module.exports = class Flag extends Sequelize.Model {
           unique: true,
           defaultValue: 0,
         },
-        type: {
+        challenge_title: {
           type: Sequelize.STRING(40),
           required: true,
           unique: true,
@@ -26,12 +26,6 @@ module.exports = class Flag extends Sequelize.Model {
         point: {
           type: Sequelize.INTEGER,
           allowNull: false,
-          defaultValue: 0,
-        },
-        solved_nickname: {
-          type: Sequelize.STRING(40),
-          required: true,
-          unique: true,
           defaultValue: 0,
         },
       },

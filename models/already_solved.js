@@ -16,7 +16,7 @@ module.exports = class Already_solved extends Sequelize.Model {
           required: true,
           unique: true,
         },
-        type: {
+        challenge_title: {
         type:Sequelize.STRING(100),
         required: true,
         unique: false,
