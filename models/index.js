@@ -4,6 +4,7 @@ const User = require('./users');
 const Web1 = require('./web1');
 const Web2 = require('./web2');
 const Flag = require('./flag');
+const Already_solved = require('./already_solved');
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -60,5 +61,10 @@ db.Flag = Flag;
 Flag.init(sequelize);
 
 Flag.associate(db);
+
+db.Already_solved =Already_solved ;
+Already_solved.init(sequelize);
+
+Already_solved.associate(db);
 
 module.exports = db;
