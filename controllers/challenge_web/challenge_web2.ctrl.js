@@ -29,14 +29,14 @@ const challenge_web2 = async(req, res) => {
             if(rows != undefined) {
         if(rows.length > 0) {
             
-            res.send("<h1>Hello admin! The Flag is cuha{I_l_ike_sql_y_e_a_h}</h1>");
+            return res.send("<h1>Hello admin! The Flag is cuha{I_l_ike_sql_y_e_a_h}</h1>");
         } else {
             console.log(sql);
-            res.send("<script>alert('로그인 실패');location.href='/challenge/web/web2';</script>");
+            return res.send("<script>alert('로그인 실패');location.href='/challenge/web/web2';</script>");
         }
     } else {
         console.log(sql);
-        res.send("<script>alert('조회 오류');location.href='/challenge/web/web2';</script>");
+        return res.send("<script>alert('조회 오류');location.href='/challenge/web/web2';</script>");
     }
         
     });
