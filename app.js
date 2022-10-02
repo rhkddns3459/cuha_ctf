@@ -10,6 +10,7 @@ const mysql = require("mysql2");
 const app = express();
 const file_store = require("session-file-store")(session);
 
+
 dotenv.config();
 
 const indexRouter = require("./routes");
@@ -27,6 +28,9 @@ sequelize.sync({force: false})
     .catch((err) => {
         console.error(err);
     });
+
+    
+
 
 app.use(express.static("views")); //view -> css 사용
 app.use(morgan("dev"));
@@ -60,3 +64,5 @@ app.use('/public', express.static('public'));
 app.listen(app.get("port"), () => {
     console.log(app.get("port"), "번 포트 실행중");
 });
+
+

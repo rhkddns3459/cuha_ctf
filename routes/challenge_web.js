@@ -1,5 +1,7 @@
 const express = require("express");
 
+const bcrypt = require('bcrypt');
+
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -13,6 +15,7 @@ router.get("/", (req, res) => {
 const controller_web1 = require("../controllers/challenge_web/challenge_web1.ctrl");
 const controller_web2 = require("../controllers/challenge_web/challenge_web2.ctrl");
 const controller_web3 = require("../controllers/challenge_web/challenge_web3.ctrl");
+const controller_web4 = require("../controllers/challenge_web/challenge_web4.ctrl");
 
 
     
@@ -48,4 +51,28 @@ router.post("/web2/submit", controller_web2.challenge_web2);
 
 router.post("/web3/submit", controller_web3.challenge_web3);
 
+router.get("/web4", (req, res) => {
+    if(!req.session.is_logined) {
+        res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
+    } else {
+
+    const pw = 'cuha{a_d_m_i_n}'
+    const salt = 12;
+    const flag = bcrypt.hashSync(pw, salt);
+
+        res.cookie('flag', flag, {
+            path: '/challenge/web/web4'
+        });
+
+        res.render("challenges/challenge_web/web4.ejs");
+        
+    }
+});
+
+      
+
+router.post("/web4/submit", controller_web4.challenge_web4);
+
 module.exports = router;
+
+
