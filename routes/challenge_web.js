@@ -56,15 +56,18 @@ router.get("/web4", (req, res) => {
         res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
     } else {
 
-    const pw = 'cuha{a_d_m_i_n}'
-    const salt = 12;
-    const flag = bcrypt.hashSync(pw, salt);
+   
 
-        res.cookie('flag', flag, {
-            path: '/challenge/web/web4'
-        });
+res.cookie('flag','a_d_m_i_n', {
+path: '/challenge/web/web4',
+signed: true,
+})
 
-        res.render("challenges/challenge_web/web4.ejs");
+    /*res.clearCookie('flag', 'cuha{a_d_m_i_n}', {
+        path: '/challenge/web/web4',
+        signed: true,
+    })*/
+    res.render("challenges/challenge_web/web4.ejs");
         
     }
 });
