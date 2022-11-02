@@ -29,10 +29,13 @@ body {
   }
 }
 .index_title {
-  padding: 40px;
+  padding: 0;
   overflow: hidden;
-  margin: 0px auto;
-  width: 50vw;
+  margin: auto;
+  display: flex;
+  width: 40rem;
+  height: 30rem;
+  object-fit: cover;
   font-weight: 600;
   line-height: 0.8;
   font-size: 1000px;
@@ -73,6 +76,7 @@ h3{
 
 .main_title {
   margin-left: 23.5rem;
+  margin: auto;
 }
 
 .main_flag{
