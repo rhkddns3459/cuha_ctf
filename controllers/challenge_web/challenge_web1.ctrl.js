@@ -25,7 +25,7 @@ const challenge_web1 = async(req, res) => {
             if(rows != undefined) {
         if(rows.length > 0) {
             console.log(sql);
-            res.send("<h1>Hello admin! The Flag is cuha{e_a_s_y_Pea_s_y}</h1>");
+            res.send("<h1>Hello admin! The Flag is CUHA{e_a_s_y_Pea_s_y}</h1>");
         } else {
             console.log(sql);
             res.send("<script>alert('로그인 실패');location.href='/challenge/web/web1';</script>");

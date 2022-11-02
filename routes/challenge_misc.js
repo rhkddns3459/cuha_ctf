@@ -22,5 +22,12 @@ router.get('/download_misc3', (req, res, next) => {
     res.sendFile(path.join(__dirname, '../public/challenges_file/misc', 'dig_flag.jpg'));
   });
 
+  router.get('/download_misc5', (req, res, next) => {
+    const text = 'ctf.zip';  
+    res.setHeader('Content-Disposition', `attachment; filename=${text}`); // 이게 핵심 
+    res.sendFile(path.join(__dirname, '../public/challenges_file/misc', 'ctf.zip'));
+  });
+
+
 module.exports = router;
 
