@@ -14,12 +14,16 @@
         <h2>Settings</h2>
         <form action="/settings/submit" method="post">
           <div class="user-box">
-            <input type="text" name="email" required="true" value="<%= session.email %>" readonly>
+            <input type="text" name="email" required="true" value="<%= settings.email %>" readonly>
             <label>Email</label>
           </div>
           <div class="user-box">
-            <input type="text" name="nickname" required="true" value="<%= session.nickname %>">
+            <input type="text" name="nickname" required="true" value="<%= settings.nickname %>">
             <label>Nickname</label>
+          </div>
+          <div class="user-box">
+            <input type="text" name="student_number" required="true" value="<%=settings.student_number %>">
+            <label>Student Number</label>
           </div>
           <div class="user-box">
             <input type="password" name="password" required="true">

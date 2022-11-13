@@ -6,14 +6,15 @@ const email_exp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z
 const password_exp =  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,18}$/; //password regExp
 const alphabet_exp = /^[a-zA-Z]*$/; //alphabet regExp
 const space_exp = /\s/g; //space regExp
-
+const student_number_exp = /^[0-9]{10,10}$/;
     const create_user = async(req, res) => {
-        const {email, password, re_password, nickname} = req.body;
+        const {email, password, re_password, nickname, student_number} = req.body;
 
         console.log(email);
         console.log(password);
         console.log(re_password);
         console.log(nickname);
+        console.log(student_number);
 
         if(email.match(email_exp) === null || email.match(space_exp) !== null){
             return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
@@ -31,6 +32,10 @@ const space_exp = /\s/g; //space regExp
             return res.send("<script>alert('비밀번호가 일치하지 않습니다.');location.href='/register';</script>");
         };
 
+        if(student_number.match(student_number_exp) === null){
+           return res.send("<script>alert('학번은 숫자만 허용되며, 10자릿수입니다.');location.href='/register';</script>");
+        } 
+
         try{
             const exUser = await User.findOne({ where: {email}});
 
@@ -41,6 +46,7 @@ const space_exp = /\s/g; //space regExp
                 User.create({
                     email: email,
                     nickname: nickname,
+                    student_number: student_number,
                     password: password,
                 });
                 })

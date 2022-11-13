@@ -17,6 +17,12 @@ module.exports = class User extends Sequelize.Model {
           unique: true,
           defaultValue: 0,
         },
+        student_number: {
+          type: Sequelize.INTEGER,
+          required: true,
+          unique: true,
+          defaultValue: 0,
+        },
         password: {
         type:Sequelize.STRING(100),
         required: true,
