@@ -5,7 +5,14 @@ body {
   height: 100hv;
   margin: 0px;
   padding: 0px;
-  background: linear-gradient(#141e30, #163d85);
+  background: linear-gradient(#141e30, #163d85); 
+}
+
+#canvas{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 .neonText {
@@ -57,7 +64,6 @@ body {
 
 h1, h2 {
   text-align: center;
-  text-transform: uppercase;
   font-weight: 400;
 }
 
