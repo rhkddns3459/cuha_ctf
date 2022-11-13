@@ -22,10 +22,16 @@ router.get('/download_misc3', (req, res, next) => {
     res.sendFile(path.join(__dirname, '../public/challenges_file/misc', 'dig_flag.jpg'));
   });
 
-  router.get('/download_misc5', (req, res, next) => {
+router.get('/download_misc5', (req, res, next) => {
     const text = 'ctf.zip';  
     res.setHeader('Content-Disposition', `attachment; filename=${text}`); // 이게 핵심 
     res.sendFile(path.join(__dirname, '../public/challenges_file/misc', 'ctf.zip'));
+  });
+
+router.get('/download_misc6', (req, res, next) => {
+    const text = 'QR_ctf.png';  
+    res.setHeader('Content-Disposition', `attachment; filename=${text}`); // 이게 핵심 
+    res.sendFile(path.join(__dirname, '../public/challenges_file/misc', 'QR_ctf.png'));
   });
 
 

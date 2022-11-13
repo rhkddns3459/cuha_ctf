@@ -1,5 +1,5 @@
 const express = require("express");
-
+const path = require('path');
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -9,5 +9,12 @@ router.get("/", (req, res) => {
     res.render("challenges/challenge_network/category3_network.ejs", {session: req.session});
     }
 });
+
+router.get('/download_network1', (req, res, next) => {
+    const text = 'telnet.pcapng';  
+    res.setHeader('Content-Disposition', `attachment; filename=${text}`); // 이게 핵심 
+    res.sendFile(path.join(__dirname, '../public/challenges_file/network', 'telnet.pcapng'));
+  });
+
 
 module.exports = router;
