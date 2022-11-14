@@ -12,7 +12,7 @@ module.exports = class Flag extends Sequelize.Model {
           primaryKey: true,
         },
         flag: {
-          type: Sequelize.STRING(100),
+          type: Sequelize.STRING(150),
           required: true,
           unique: true,
           defaultValue: 0,

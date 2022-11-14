@@ -16,5 +16,10 @@ router.get('/download_network1', (req, res, next) => {
     res.sendFile(path.join(__dirname, '../public/challenges_file/network', 'telnet.pcapng'));
   });
 
+  router.get('/download_network2', (req, res, next) => {
+    const text = 'DOS.zip';  
+    res.setHeader('Content-Disposition', `attachment; filename=${text}`); // 이게 핵심 
+    res.sendFile(path.join(__dirname, '../public/challenges_file/network', 'DOS.zip'));
+  });
 
 module.exports = router;
