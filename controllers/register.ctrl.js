@@ -37,11 +37,24 @@ const student_number_exp = /^[0-9]{1,10}$/;
         }
 
         try{
-            const exUser = await User.findOne({ where: {email, nickname, student_number}});
+            const exUser1 = await User.findOne({ where: {email: email}});
+            const exUser2 = await User.findOne({ where: {nickname: nickname}});
+            const exUser3 = await User.findOne({ where: {student_number: student_number}});
+            if (exUser1 != null) {
+                return res.send("<script>alert('중복된 이메일이 있습니다.');location.href='/register';</script>");
+            }
 
-            console.log(exUser);
+            if (exUser2 != null) {
+                return res.send("<script>alert('중복된 닉네임이 있습니다.');location.href='/register';</script>");
+            }
 
-            if(exUser === null){
+            if (exUser3 != null) {
+                return res.send("<script>alert('중복된 학번이 있습니다.');location.href='/register';</script>");
+            }
+
+            console.log("exUser is" + exUser1);
+
+            if(exUser1 || exUser2 || exUser3 === null ){
                 bcrypt.hash(password, 10, (err, password) => {
                 User.create({
                     email: email,
