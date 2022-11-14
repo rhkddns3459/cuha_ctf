@@ -6,7 +6,7 @@ const email_exp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z
 const password_exp =  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,18}$/; //password regExp
 const alphabet_exp = /^[a-zA-Z]*$/; //alphabet regExp
 const space_exp = /\s/g; //space regExp
-const student_number_exp = /^[0-9]{10,10}$/;
+const student_number_exp = /^[0-9]{1,10}$/;
     const create_user = async(req, res) => {
         const {email, password, re_password, nickname, student_number} = req.body;
 
@@ -33,11 +33,11 @@ const student_number_exp = /^[0-9]{10,10}$/;
         };
 
         if(student_number.match(student_number_exp) === null){
-           return res.send("<script>alert('학번은 숫자만 허용되며, 10자릿수입니다.');location.href='/register';</script>");
-        } 
+           return res.send("<script>alert('학번은 숫자만 허용되며, 10자릿수 이하입니다.');location.href='/register';</script>");
+        }
 
         try{
-            const exUser = await User.findOne({ where: {email}});
+            const exUser = await User.findOne({ where: {email, nickname, student_number}});
 
             console.log(exUser);
 

@@ -83,6 +83,22 @@ router.get('/download_web2', (req, res, next) => {
 
 router.post("/web4/submit", controller_web4.challenge_web4);
 
+router.get("/web5", (req, res) => {
+    if(!req.session.is_logined) {
+        res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
+    } else {
+        res.render("challenges/challenge_web/robots/index.ejs");
+    }
+});
+
+router.get('/web5/robots.txt', (req, res) => {
+  res.render("challenges/challenge_web/robots/robots.ejs");
+})
+
+router.get('/web5/admin', (req, res) => {
+  res.render("challenges/challenge_web/robots/admin.ejs");
+})
+
 module.exports = router;
 
 
