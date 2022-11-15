@@ -6,6 +6,10 @@ const router = express.Router();
 
 const path = require("path");
 
+const controller_web3 = require("../controllers/challenge_web/challenge_web3.ctrl");
+const controller_web4 = require("../controllers/challenge_web/challenge_web4.ctrl");
+
+
 router.get("/", (req, res) => {
     if(!req.session.is_logined) {
         res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
@@ -14,34 +18,7 @@ router.get("/", (req, res) => {
     }
 });
 
-const controller_web1 = require("../controllers/challenge_web/challenge_web1.ctrl");
-const controller_web2 = require("../controllers/challenge_web/challenge_web2.ctrl");
-
-
-    
-
-
 router.get("/web1", (req, res) => {
-    if(!req.session.is_logined) {
-        res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
-    } else {
-    res.render("challenges/challenge_web/web1.ejs");
-    }
-});
-
-router.post("/web1/submit", controller_web1.challenge_web1);
-
-router.get("/web2", (req, res) => {
-    if(!req.session.is_logined) {
-        res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
-    } else {
-        res.render("challenges/challenge_web/web2.ejs");
-    }
-});
-
-router.post("/web2/submit", controller_web2.challenge_web2);
-
-router.get("/web4", (req, res) => {
     if(!req.session.is_logined) {
         res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
     } else {
@@ -49,14 +26,44 @@ router.get("/web4", (req, res) => {
     }
 });
 
-router.get('/web4/robots.txt', (req, res) => {
+router.get('/web1/robots.txt', (req, res) => {
   res.render("challenges/challenge_web/robots/robots.ejs");
 })
 
-router.get('/web4/admin', (req, res) => {
+router.get('/web1/admin', (req, res) => {
   res.render("challenges/challenge_web/robots/admin.ejs");
 })
 
+router.get("/web3", (req, res) => {
+    if(!req.session.is_logined) {
+        res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
+    } else {
+    res.render("challenges/challenge_web/web3.ejs");
+    }
+});
+
+router.post("/web3/submit", controller_web3.challenge_web3);
+
+router.get("/web4", (req, res) => {
+    if(!req.session.is_logined) {
+        res.send("<script>alert('로그인 후 이용해주세요');location.href='/login';</script>");
+    } else {
+        res.render("challenges/challenge_web/web4.ejs");
+    }
+});
+
+router.post("/web4/submit", controller_web4.challenge_web4);
+
+router.get('/download_web3', (req, res, next) => {
+    const text = 'Easy_Peasy_sql_chall.js';  
+    res.setHeader('Content-Disposition', `attachment; filename=${text}`); // 이게 핵심 
+    res.sendFile(path.join(__dirname, '../public/challenges_file/web', 'Easy_Peasy_sql_chall.js'));
+  });
+
+router.get('/download_web4', (req, res, next) => {
+  const text = 'like_injection_chall.js';  
+  res.setHeader('Content-Disposition', `attachment; filename=${text}`); // 이게 핵심 
+  res.sendFile(path.join(__dirname, '../public/challenges_file/web', 'like_injection_chall.js'));
+});
+
 module.exports = router;
-
-

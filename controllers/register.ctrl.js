@@ -2,7 +2,7 @@ const { Router } = require("express");
 const mysql = require("mysql2");
 const bcrypt = require('bcrypt');
 const User = require("../models/users");
-const email_exp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //email regExp
+const email_exp = /[^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}]{1,40}$/i; //email regExp
 const password_exp =  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,18}$/; //password regExp
 const alphabet_exp = /^[a-zA-Z]*$/; //alphabet regExp
 const space_exp = /\s/g; //space regExp
@@ -17,7 +17,7 @@ const student_number_exp = /^[0-9]{1,10}$/;
         console.log(student_number);
 
         if(email.match(email_exp) === null || email.match(space_exp) !== null){
-            return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
+            return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 40글자 이하의 이메일만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
         if(nickname.match(alphabet_exp) === null || email.match(space_exp) !== null){
@@ -28,27 +28,27 @@ const student_number_exp = /^[0-9]{1,10}$/;
             return res.send("<script>alert('비밀번호 형식은 숫자, 문자, 특수문자 포함 형태의 8~18자리 값만 허용됩니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
-        if(password != re_password || email.match(space_exp) !== null){
+        if(password !== re_password || email.match(space_exp) !== null){
             return res.send("<script>alert('비밀번호가 일치하지 않습니다.');location.href='/register';</script>");
         };
 
         if(student_number.match(student_number_exp) === null){
-           return res.send("<script>alert('학번은 숫자만 허용되며, 10자릿수 이하입니다.');location.href='/register';</script>");
+           return res.send("<script>alert('학번은 숫자 형태의 1~10자리 값만 허용합니다.');location.href='/register';</script>");
         }
 
         try{
             const exUser1 = await User.findOne({ where: {email: email}});
             const exUser2 = await User.findOne({ where: {nickname: nickname}});
             const exUser3 = await User.findOne({ where: {student_number: student_number}});
-            if (exUser1 != null) {
+            if (exUser1 !== null) {
                 return res.send("<script>alert('중복된 이메일이 있습니다.');location.href='/register';</script>");
             }
 
-            if (exUser2 != null) {
+            if (exUser2 !== null) {
                 return res.send("<script>alert('중복된 닉네임이 있습니다.');location.href='/register';</script>");
             }
 
-            if (exUser3 != null) {
+            if (exUser3 !== null) {
                 return res.send("<script>alert('중복된 학번이 있습니다.');location.href='/register';</script>");
             }
 
