@@ -5,7 +5,7 @@ const alphabet_exp = /^[a-zA-Z]*$/; //alphabet regExp
 const space_exp = /\s/g; //space regExp
 const email_exp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //email regExp
 const nickname_exp = /^[a-zA-Z]{1,20}$/;
-const student_number_exp = /^[0-9]{1,10}$/;
+const student_number_exp = /^[0-9]{8,10}$/;
 const bcrypt = require("bcrypt");
 const settings = async(req, res) => {
     const {password, re_password, nickname, email, student_number} = req.body;
@@ -17,6 +17,9 @@ const settings = async(req, res) => {
     //     return res.send("<script>alert('허용되지 않은 접근입니다.');location.href='/settings';</script>");
     //  };
     const user_info = await User.findOne({where: {email: session_email}, attributes: ["email", "nickname", "point", "solved"]});
+
+    const exUser1 = await User.findOne({ where: {student_number: student_number}});
+    const exUser2 = await User.findOne({ where: {nickname: nickname}});
 
     if(session_email !== req.body.email){
       
@@ -36,8 +39,20 @@ const settings = async(req, res) => {
     };
 
     if(student_number.match(student_number_exp) === null){
-        return res.send("<script>alert('학번은 숫자 형태의 1~10자리 값만 서용합니다.');location.href='/settings';</script>");
+        return res.send("<script>alert('학번은 숫자 형태의 8~10자리 값만 서용합니다.');location.href='/settings';</script>");
     } 
+
+    if(student_number.match(student_number_exp) === null){
+        return res.send("<script>alert('학번은 숫자 형태의 8~10자리 값만 서용합니다.');location.href='/settings';</script>");
+    } 
+
+    if (exUser2 !== null && exUser1 !== nickname) {
+        return res.send("<script>alert('중복된 닉네임이 있습니다.');location.href='/settings';</script>");
+    }
+
+    if (exUser1 !== null && exUser1 !== student_number) {
+        return res.send("<script>alert('중복된 학번이 있습니다.');location.href='/settings';</script>");
+    }
 
     await User.update({nickname: req.body.nickname}, {where: {email:session_email}});
     await User.update({student_number: req.body.student_number}, {where: {email:session_email}});

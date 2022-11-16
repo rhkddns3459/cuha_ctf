@@ -20,7 +20,7 @@ const challenge_web3 = async(req, res) => {
     if(id == "guest" || id == "no") 
         return res.send("<h1>You are not admin!</h1>");
    
-    const sql = connection.query('SELECT * FROM Web1 where id =' + "'" + params + "'", function(err, rows) {
+    const sql = connection.query('SELECT * FROM Web3 where id =' + "'" + params + "'", function(err, rows) {
         if(err) console.log(err);
             if(rows != undefined) {
         if(rows.length > 0) {

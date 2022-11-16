@@ -2,11 +2,12 @@ const { Router } = require("express");
 const mysql = require("mysql2");
 const bcrypt = require('bcrypt');
 const User = require("../models/users");
-const email_exp = /(^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}){1,40}$/i; //email regExp
+const email_exp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i; //email regExp
+const email_length_exp = /(.){1,40}/i;
 const password_exp =  /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,18}$/; //password regExp
 const alphabet_exp = /^[a-zA-Z]*$/; //alphabet regExp
 const space_exp = /\s/g; //space regExp
-const student_number_exp = /^[0-9]{1,10}$/;
+const student_number_exp = /^[0-9]{8,10}$/;
     const create_user = async(req, res) => {
         const {email, password, re_password, nickname, student_number} = req.body;
 
@@ -16,9 +17,13 @@ const student_number_exp = /^[0-9]{1,10}$/;
         console.log(nickname);
         console.log(student_number);
 
-        if(email.match(email_exp) === null || email.match(space_exp) !== null){
+        if(email.match(email_exp) === null || email.match(space_exp) !== null || email.match(email_length_exp) === null){
             return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 1~40자리 값만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
+
+        if(student_number.match(student_number_exp) === null){
+            return res.send("<script>alert('학번은 숫자 형태의 8~10자리 값만 허용합니다.');location.href='/register';</script>");
+         }
 
         if(nickname.match(alphabet_exp) === null || email.match(space_exp) !== null){
             return res.send("<script>alert('닉네임은 알파벳만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
@@ -31,10 +36,6 @@ const student_number_exp = /^[0-9]{1,10}$/;
         if(password !== re_password || email.match(space_exp) !== null){
             return res.send("<script>alert('비밀번호가 일치하지 않습니다.');location.href='/register';</script>");
         };
-
-        if(student_number.match(student_number_exp) === null){
-           return res.send("<script>alert('학번은 숫자 형태의 1~10자리 값만 허용합니다.');location.href='/register';</script>");
-        }
 
         try{
             const exUser1 = await User.findOne({ where: {email: email}});

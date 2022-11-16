@@ -24,7 +24,7 @@ const challenge_web4 = async(req, res) => {
    if(id.match(sql_exp) !== null) {
         return res.send("<script>alert('no hack');location.href='/challenge/web/web4';</script>");
     }   
-    const sql = connection.query('SELECT * FROM Web2 where id =' + "'" + params + "'" + 'and pw =' + "'" + params2 + "'" , function(err, rows) {
+    const sql = connection.query('SELECT * FROM Web4 where id =' + "'" + params + "'" + 'and pw =' + "'" + params2 + "'" , function(err, rows) {
         //if(err) console.log(err);
             if(rows != undefined) {
         if(rows.length > 0) {

@@ -50,7 +50,7 @@ const login_user = async(req, res) => {
         }
     }catch(err){
         console.log(err);
-        res.send("<script>alert('로그인에 실패했습니다.');location.href='/';</script>");
+        res.send("<script>alert('로그인에 실패했습니다.');location.href='/login';</script>");
     }
 
 }

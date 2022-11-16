@@ -1,8 +1,8 @@
 'use strict';
 
 const User = require('./users');
-const Web1 = require('./web1');
-const Web2 = require('./web2');
+const Web3 = require('./web3');
+const Web4 = require('./web4');
 const Flag = require('./flag');
 const Already_solved = require('./already_solved');
 const First_blood = require('./first_blood')
@@ -48,15 +48,15 @@ User.init(sequelize);
 
 User.associate(db);
 
-db.Web1 = Web1;
-Web1.init(sequelize);
+db.Web3 = Web3;
+Web3.init(sequelize);
 
-Web1.associate(db);
+Web3.associate(db);
 
-db.Web2 = Web2;
-Web2.init(sequelize);
+db.Web4 = Web4;
+Web4.init(sequelize);
 
-Web2.associate(db);
+Web4.associate(db);
 
 db.Flag = Flag;
 Flag.init(sequelize);
