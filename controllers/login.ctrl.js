@@ -36,6 +36,7 @@ const login_user = async(req, res) => {
 
                 req.session.email = email;
                 req.session.nickname = ex_user.nickname;
+                req.session.student_number = ex_user.student_number;
                 req.session.is_logined = true;
                 req.session.save(function() {
                     console.log("-------------------------------------------------------------");

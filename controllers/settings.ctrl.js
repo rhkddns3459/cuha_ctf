@@ -12,14 +12,15 @@ const settings = async(req, res) => {
     const session_email = req.session.email;
     const session_password = req.session.password;
     const session_student_number = req.session.student_number;
+    const session_nickname = req.session.nickname;
 
     // if(email !== session_email){
     //     return res.send("<script>alert('허용되지 않은 접근입니다.');location.href='/settings';</script>");
     //  };
     const user_info = await User.findOne({where: {email: session_email}, attributes: ["email", "nickname", "point", "solved"]});
 
-    const exUser1 = await User.findOne({ where: {student_number: student_number}});
-    const exUser2 = await User.findOne({ where: {nickname: nickname}});
+    const exUser1 = await User.findOne({ where: {nickname: nickname}});
+    const exUser2 = await User.findOne({ where: {student_number: student_number}});
 
     if(session_email !== req.body.email){
       
@@ -46,24 +47,53 @@ const settings = async(req, res) => {
         return res.send("<script>alert('학번은 숫자 형태의 8~10자리 값만 서용합니다.');location.href='/settings';</script>");
     } 
 
-    if (exUser2 !== null && exUser1 !== nickname) {
+// console.log("11111111111111111111\n" + session_nickname + "\n111111111111111111111111")
+// console.log("222222222222222222\n" + session_student_number + "\n22222222222222222222")
+
+    if(session_nickname != nickname){
+        var changed_nickname = nickname;
+        const compare_nickname = await User.findOne({ where: {nickname: nickname}});
+        if(compare_nickname){
+            return res.send("<script>alert('중복된 닉네임이 있습니다.');location.href='/settings';</script>");
+        }
+    }
+
+    if(session_student_number != student_number){
+        var changed_student_number = student_number;
+        const compare_student_number = await User.findOne({ where: {student_number: student_number}});
+        if(compare_student_number){
+            return res.send("<script>alert('중복된 학번이 있습니다.');location.href='/settings';</script>");
+        }
+    }
+
+
+/*
+    if (exUser1 !== null && exUser1.nickname !== nickname) {
         return res.send("<script>alert('중복된 닉네임이 있습니다.');location.href='/settings';</script>");
     }
 
-    if (exUser1 !== null && exUser1 !== student_number) {
+    if (exUser2 !== null && exUser2.student_number !== student_number) {
         return res.send("<script>alert('중복된 학번이 있습니다.');location.href='/settings';</script>");
     }
+*/
 
-    await User.update({nickname: req.body.nickname}, {where: {email:session_email}});
-    await User.update({student_number: req.body.student_number}, {where: {email:session_email}});
+    await User.update({nickname: changed_nickname}, {where: {email:session_email}});
+    await User.update({student_number: changed_student_number}, {where: {email:session_email}});
    
     bcrypt.hash(password, 10, (err, password) => {
         User.update({password: password}, {where: {email:session_email}});
     });
 
-    res.redirect("/")
+    req.session.destroy(function(){ 
+        req.session;
+        });
+    // console.log("3333333333333333333\n" + req.session + "\n333333333333333333333")
+    return res.redirect("/login");
+
 
 }
+
+
 
 module.exports = {
     settings,
