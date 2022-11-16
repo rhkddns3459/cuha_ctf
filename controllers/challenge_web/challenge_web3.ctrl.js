@@ -28,11 +28,11 @@ const challenge_web3 = async(req, res) => {
             res.send("<h1>Hello admin! The Flag is CUHA{e_a_s_y_Pea_s_y}</h1>");
         } else {
             console.log(sql);
-            res.send("<script>alert('로그인 실패');location.href='/challenge/web/web3';</script>");
+            res.send("<script>alert('정답이 아닙니다');location.href='/challenge/web/web3';</script>");
         }
     } else {
         console.log(sql);
-        res.send("<script>alert('조회 오류');location.href='/challenge/web/web3';</script>");
+        res.send("<script>alert('정답이 아닙니다');location.href='/challenge/web/web3';</script>");
     }
         
     });

@@ -32,11 +32,11 @@ const challenge_web4 = async(req, res) => {
             return res.send("<h1>Hello admin! The Flag is CUHA{I_l_ike_sql_y_e_a_h}</h1>");
         } else {
             console.log(sql);
-            return res.send("<script>alert('로그인 실패');location.href='/challenge/web/web4';</script>");
+            return res.send("<script>alert('정답이 아닙니다');location.href='/challenge/web/web4';</script>");
         }
     } else {
         console.log(sql);
-        return res.send("<script>alert('조회 오류');location.href='/challenge/web/web4';</script>");
+        return res.send("<script>alert('정답이 아닙니다');location.href='/challenge/web/web4';</script>");
     }
         
     });
