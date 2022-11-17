@@ -22,6 +22,11 @@ module.exports = class Already_solved extends Sequelize.Model {
         required: true,
         unique: false,
         },
+        solved_time: {
+          type: 'TIMESTAMP',
+          defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+          allowNull: false,
+        },
         
       },
       {

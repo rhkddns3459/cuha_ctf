@@ -17,7 +17,7 @@ const student_number_exp = /^[0-9]{8,10}$/;
         console.log(nickname);
         console.log(student_number);
 
-        if(email.match(email_exp) === null || email.match(space_exp) !== null || email.match(email_length_exp) === null){
+        if(email.match(email_exp) === null || email.match(space_exp) !== null || email.length > 40){
             return res.send("<script>alert('지정된 이메일 형식을 사용하세요. 1~40자리 값만 허용합니다. 또한 공백, 띄어쓰기는 허용하지 않습니다.');location.href='/register';</script>");
         };
 
